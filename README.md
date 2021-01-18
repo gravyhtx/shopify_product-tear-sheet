@@ -56,7 +56,7 @@ First, create a new file in the Layout folder called `tear_sheet.liquid` and rep
 
 Navigate to the Templates folder next and click "Add a new template". You will need to choose "page" from the dropdown and enter "tear-sheet" in the input to create a template for `page.tear-sheet.liquid` where you will enter the code found in the [Templates](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid) folder.
 
-You can now create your Tear Sheet page in your _SALES CHANNELS_ by navigating from "Online Store" > "Pages" and add a new page called "Tear Sheet". Once created, this page will be located in the URL as `/pages/tear-sheet` so we can create a path for our new tear sheet page to be printed without leaving your domain (instead of creating a new "about:blank" window).
+You can now create your Tear Sheet page in your _"SALES CHANNELS"_ by navigating from "Online Store" > "Pages" and add a new page called "Tear Sheet". Once created, this page will be located in the URL as `/pages/tear-sheet` so we can create a path for our new tear sheet page to be printed without leaving your domain (instead of creating a new "about:blank" window).
 
 __THIS IS VERY IMPORTANT!__ Before saving this page, you will select the Template from the dropdown menu under "Template suffix" and choose `page.tear-sheet.liquid` which is the file you set up in Templates. If you don't see it then make sure you have this file in your Templates folder in the Code Editor.
 

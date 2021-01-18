@@ -3,9 +3,9 @@ Add a button on your Product pages that prints a simple Tear Sheet.
 
 <h3>TABLE OF CONTENTS</h3>
 
-[Description](#Description)<br>
-[Product&nbsp;Elements](#Product&nbsp;Elements)<br>
-[Installation](#Installation)<br>
+I. [Description](#Description)<br>
+II. [Product&nbsp;Elements](#Product&nbsp;Elements)<br>
+III. [Installation](#Installation)<br>
 
 ## Description 
 __FORMAT__
@@ -26,12 +26,12 @@ __TIPS__
 <br>
 * If you want to add "Dimensions" of the product you can put that info in the "Barcode" input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called.
 * When you print the Tear Sheet in edit mode, you will likely have a bar at the bottom that will get printed. To close this you will need to hide that bar.
-    1. Comment out the print code on "page.tear-sheet.liquid" at lines 144-145.
-    2. Open the Tear Sheet and choose to close preview
-    3. On that page choose to hide that bar (far right)
-    4. Go back to the previous page (your Tear Sheet) and it should be gone now.
-    5. Close this page and remove the comments at 144-145 on "page.tear-sheet.liquid"
-    6. Open Tear Sheet again and it should now print without the bottom bar<br><br>
+    - Comment out the print code on "page.tear-sheet.liquid" at lines 144-145.
+    - Open the Tear Sheet and choose to close preview
+    - On that page choose to hide that bar (far right)
+    - Go back to the previous page (your Tear Sheet) and it should be gone now.
+    - Close this page and remove the comments at 144-145 on "page.tear-sheet.liquid"
+    - Open Tear Sheet again and it should now print without the bottom bar<br><br>
         _** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can [update this README!](https://github.com/gravyhtx/shopify_product-tear-sheet/issues) **_
         <br><br>
 

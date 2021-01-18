@@ -16,6 +16,7 @@ This project uses some easy to use code using local storage to get and set produ
 Once data is set in local storage a new page is opened in a separate tab using a blank HTML layout from "tear_sheet.liquid" Template. The basic HTML data is set using stripped down head tag from the theme layout to create a blank space to populate `{{ content_for_layout }}` with items set in local storage.
 
 <br><br>
+
 __TIPS__
 <br>
 - If you want to add "Dimensions" of the product you can put that info in the "Barcode" input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called.

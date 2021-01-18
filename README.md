@@ -8,7 +8,6 @@ Print a simple Tear Sheet on Product pages made in Shopify's Liquid templating l
 - [Product&nbsp;Elements](#product-elements)<br>
 - [Installation](#installation)<br>
 <br>
-
 ## Description
 
 __DETAILS__
@@ -19,7 +18,6 @@ This project uses some easy to use code using local storage to get and set produ
 
 Once data is set in local storage a new page is opened in a separate tab using a blank HTML layout from the `tear_sheet.liquid` Template. The basic HTML data is set using stripped down head tag from the theme layout to create a blank space to populate `{{ content_for_layout }}` with items set in local storage.
 <br><br>
-
 __TIPS__
 
 * If you want to add "Dimensions" of the product you can put that info in the __"Barcode"__ input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called. It doesn't necessarily need to be the "Barcode"... same goes for __"SKU"__, but for the purposes of this demo the "SKU" is used as it was intended and the "Barcode" is used to display the dimensions.
@@ -33,7 +31,6 @@ __TIPS__
         <br>
     - This same concept can be applied to any HTML code with Vanilla JavaScript. You'll grab the elements to insert into the tear sheet based on your own variables or grabbing elements from the DOM in place of the Liquid syntax.
 <br><br>
-
 ## Product Elements
 This is a list of all the elements grabbed from the product page used in this project:
 - Title

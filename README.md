@@ -1,5 +1,5 @@
 # Shopify Tear-Sheet
-Add a simple, free Tear Sheet function to your Product pages.
+Add a simple, printable function to add to Product pages.
 
 ## Description 
 FORMAT: Shopify Liquid templating language

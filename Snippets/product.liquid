@@ -1,0 +1,76 @@
+<!-- 
+    TEAR SHEET TRIGGER
+-->
+<!-- Add this code wherever you want your button to trigger the TEAR SHEET code -->
+<!-- Don't forget to add some style, broh -->
+
+<input style="" class="tear-sheet" id="tear-sheet" type="button" name="print" value="TEAR SHEET" onclick="printDiv()"> 
+</span>
+
+
+<!-- TEAR SHEET CODE -->
+
+<script>
+    
+    // Clears local storage anytime a new product page is opened or on refresh //
+    localStorage.clear()      
+      
+    // Grabs data to save in local storage //
+    function printDiv() {
+            
+        var variantId = '{{ current_variant.id }}'
+        
+        // Uses product variant's ID and adds a descriptor to create unique item name for local storage
+        var titleStore = variantId + 'title'
+        var imgStore = variantId + 'image'
+        var descStore = variantId + 'description'
+        var priceStore = variantId + 'price'
+        var skuStore = variantId + 'sku'
+        var dimensStore = variantId + 'dimensions'
+        
+
+    ///////////////////////////////////////////////
+    // ELEMENTS TO ADD AS ITEMS IN LOCAL STORAGE //
+    ///////////////////////////////////////////////
+
+        // Add ID -- id="descPrint" -- on the <div> to grab product description HTML from {{ product_description_content }}
+        var descPrint = document.getElementById('descPrint').innerHTML;
+
+        // Elements grabbed from Shopify Liquid preset variables
+        var titlePrint = '{{ product.title }}';
+        var pricePrint = '{{ current_variant.price | money }}'
+        var skuPrint = '{{ current_variant.sku }}';
+        var dimensPrint = '{{ current_variant.barcode }}';
+
+        // Find your featured image URL and replace all characters starting with "products/..." with {{product.featured_image}} 
+        // Pro Tip: Right-click on featured image and choose "Open in New Tab" to get featured URL pathway
+        var imgPrint = 'https://cdn.shopify.com/s/files/1/0439/2868/2653/{{product.featured_image}}'
+
+        
+        
+    //  STORE TITLE
+        localStorage.setItem(titleStore, titlePrint);
+        
+    //  DESCRIPTION
+        localStorage.setItem(descStore, descPrint);
+        
+    //  IMAGE
+        localStorage.setItem(imgStore, imgPrint);
+        
+    //  PRICE
+        localStorage.setItem(priceStore, pricePrint);
+    
+    //  SKU
+        localStorage.setItem(skuStore, skuPrint);
+        
+    //  DIMENSIONS
+        localStorage.setItem(dimensStore, dimensPrint);
+
+    
+    ///////////////////////////////////////////////////////////////////
+    // OPEN TEAR SHEET PAGE WHERE VARIANT ID CAN BE GRABBED FROM URL //
+    ///////////////////////////////////////////////////////////////////
+
+    window.open("/pages/tear-sheet?{{ current_variant.id }}")
+    
+    }

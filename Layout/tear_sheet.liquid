@@ -16,7 +16,7 @@
   <meta name="theme-color" content="{{ settings.accent_secondary }}">
   <link rel="canonical" href="{{ canonical_url }}">
 
-  <!-- GRABS SITE FAVICON -->
+  <!-- GRABS SITE FAVICON (Delete if you don't want that shown) -->
   {% if settings.favicon %}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
   {% endif %}
@@ -43,7 +43,7 @@
 //  DECLARE PRODUCT ID FROM URL
     const prodIdUrl = window.location.search.substr(1)
 
-// DELETES "=&ose=false" PRODUCT ID STRING
+//  DELETES THE "=&ose=false" FROM PRODUCT ID STRING
     var prodId = prodIdUrl.replace("=&ose=false", "")
     
 //  SPLIT "&" INTO OBJECTS (if you need multiple variables)
@@ -53,7 +53,7 @@
     const titleStore = prodId + "title";
     var titleGet = localStorage.getItem(titleStore)
     
-//  UPDATE PAGE TITLE TO PRODUCT NAME (saves as "[name].PDF")
+//  UPDATE PAGE TITLE TO PRODUCT NAME (this will save document as "[title].PDF")
     document.title = titleGet
     
   </script>
@@ -61,9 +61,10 @@
   //document.title//
   <title></title>
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////
-  //  ONLY {{ content_for_header }} is required, the rest is not really necessary for this page //
-  ////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////  ONLY {{ content_for_header }} is required, the rest is not really necessary for this page ////
+  ////  Do not call the theme's css (or scss), we want to add in our own styling to this document ////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
 
   {% if page_description %}
     <meta name="description" content="{{ page_description | escape }}">

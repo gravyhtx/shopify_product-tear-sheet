@@ -25,9 +25,9 @@ __TIPS__
 * If you want to add "Dimensions" of the product you can put that info in the __"Barcode"__ input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called. It doesn't necessarily need to be the "Barcode"... same goes for __"SKU"__, but for the purposes of this demo the "SKU" is used as it was intended and the "Barcode" is used to display the dimensions.
 
 * When you print the Tear Sheet in edit mode, you will likely have a bar at the bottom that will get printed. To close this you will need to hide that bar.
-    - Comment out the print code on `page.tear-sheet.liquid` at lines [144-145](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid).
+    - Comment out the print code on `page.tear-sheet.liquid` at lines [152-153](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid).
     - Open the Tear Sheet and choose to close preview on the bottom bar
-    - Close this page and remove the comments at [144-145](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid) on `page.tear-sheet.liquid`
+    - Close this page and remove the comments at [152-153](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid) on `page.tear-sheet.liquid`
     - Reopen Tear Sheet and it should now print without the bottom bar
         <p><i>** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can <a href="https://github.com/gravyhtx/shopify_product-tear-sheet/issues" target="_blank">update this README</a>. **</i></p>
         <br>

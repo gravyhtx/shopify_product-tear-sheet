@@ -1,11 +1,13 @@
 <!-- 
-    TEAR SHEET TRIGGER
+////////////////////////
+// TEAR SHEET TRIGGER //
+////////////////////////
 -->
+
 <!-- Add this code wherever you want your button to trigger the TEAR SHEET code -->
 <!-- Don't forget to add some style, broh -->
 
-<input style="" class="tear-sheet" id="tear-sheet" type="button" name="print" value="TEAR SHEET" onclick="printDiv()"> 
-</span>
+<input class="tear-sheet" id="tear-sheet" type="button" name="tear-sheet" value="TEAR SHEET" onclick="printDiv()"> 
 
 
 <!-- TEAR SHEET CODE -->
@@ -42,7 +44,7 @@
         var skuPrint = '{{ current_variant.sku }}';
         var dimensPrint = '{{ current_variant.barcode }}';
 
-        // Find your featured image URL and replace all characters starting with "products/..." with {{product.featured_image}} 
+        // Find your featured image URL and replace all characters (starting with "products/...") with {{product.featured_image}} 
         // Pro Tip: Right-click on featured image and choose "Open in New Tab" to get featured URL pathway
         var imgPrint = 'https://cdn.shopify.com/s/files/1/0439/2868/2653/{{product.featured_image}}'
 
@@ -51,19 +53,19 @@
     //  STORE TITLE
         localStorage.setItem(titleStore, titlePrint);
         
-    //  DESCRIPTION
+    //  STORE DESCRIPTION
         localStorage.setItem(descStore, descPrint);
         
-    //  IMAGE
+    //  STORE IMAGE
         localStorage.setItem(imgStore, imgPrint);
         
-    //  PRICE
+    //  STORE PRICE
         localStorage.setItem(priceStore, pricePrint);
     
-    //  SKU
+    //  STORE SKU
         localStorage.setItem(skuStore, skuPrint);
         
-    //  DIMENSIONS
+    //  STORE DIMENSIONS
         localStorage.setItem(dimensStore, dimensPrint);
 
     
@@ -74,3 +76,5 @@
     window.open("/pages/tear-sheet?{{ current_variant.id }}")
     
     }
+
+</script>

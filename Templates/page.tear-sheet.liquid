@@ -1,5 +1,5 @@
 {% layout 'tear_sheet' %}
-<!-- USE "tear_sheet.liquid" TEMPLATE AS HTML LAYOUT-->
+<!-- USES "tear_sheet.liquid" TEMPLATE AS HTML LAYOUT FOR TEAR SHEET -->
 
 <!-- Up to you... the style for the HTML is your call  -->
 <style>
@@ -9,18 +9,12 @@
     text-align: center;
   }
 
-  .feat {
-    max-height: 350px;
-    margin-right: 15px;
-  }
-
   .logo {
     width: 200px;
   }
 
   .title {
     font-size: 18px;
-/*     margin-bottom: 8px; */
     font-weight: 200;
   }
 
@@ -35,7 +29,7 @@
     margin-left: -100px;
     margin-right: -100px;
     text-align:center;
-    background-position: bottom 45px
+    background-position: bottom 45px;
   }
 
   .foot {
@@ -55,12 +49,13 @@
 <section>
   
   <br><br>
+
   <!-- Enter the pathway to the logo you'd like to use in "src" -->
-  <img class="logo" id="logo" src="">
+  <img class="logo" id="logo" src="/pages">
 
   <br><br>
   
-  <div style="margin: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+  <div style="margin: 0; position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
     
   	<br><br><br><br>
     
@@ -140,8 +135,10 @@
     // SET DIMENSIONS (BARCODE)
     document.getElementById('sheet-dimens').innerHTML = sheetDimens
     
-    
+
+/////////////////////////////////////////////////////////////////
 //////// PRINT WINDOW AND CLOSE AFTER ACTION IS COMPLETE ////////
+/////////////////////////////////////////////////////////////////
 
     setTimeout(function () { window.print(); }, 500);
   	window.onfocus = function () { setTimeout(function () { window.close(); }, 500); }

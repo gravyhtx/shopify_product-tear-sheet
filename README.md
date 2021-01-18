@@ -1,9 +1,8 @@
 # PRINTABLE TEAR SHEET
-SHOPIFY LIQUID CODE
+Add a simple Tear Sheet function to your Product pages without needing to pay for an app!
 
 ## Description 
-
-Add a simple Tear Sheet function to your Product pages without needing to pay for an app!
+FORMAT: Shopify Liquid templating language
 
 This project uses some easy to use code using local storage to get and set product information to automatically print as a simple Tear Sheet and close after the document is printed, saved, or cancelled. When a user triggers an onclick event on an input tag button this code will open a new tab with data populated on a standard blank page without leaving your Shopify website's URL. A function uses native Shopify Liquid variables of the "current_variant" to grab all the details needed from the product page which uses the variant's unique ID plus a unique descriptor to set these variables as items in local storage.
 

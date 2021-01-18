@@ -1,6 +1,11 @@
 # Shopify Tear-Sheet
 Add a button on your Product pages that prints a simple Tear Sheet.
 
+__TABLE OF CONTENTS__
+[Description](#Description)
+[Product&nbsp;Elements](#Product&nbsp;Elements)
+[Installation](#Installation)
+
 ## Description 
 __FORMAT__
 <br>
@@ -29,7 +34,7 @@ __TIPS__
         _** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can [update this README!](https://github.com/gravyhtx/shopify_product-tear-sheet/issues) **_
         <br><br>
 
-## PRODUCT ELEMENTS
+## Product Elements
 This is a list of all the elements grabbed from the product page used in this project:
 - Title
 - Image

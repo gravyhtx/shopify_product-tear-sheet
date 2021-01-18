@@ -3,9 +3,9 @@ Add a button on your Product pages that prints a simple Tear Sheet.
 
 <h3>TABLE OF CONTENTS</h3>
 
-- [Description](#Description)<br>
-- [Product&nbsp;Elements](#Product&nbsp;Elements)<br>
-- [Installation](#Installation)<br>
+1. [Description](#Description)<br>
+2. [Product&nbsp;Elements](#Product&nbsp;Elements)<br>
+3. [Installation](#Installation)<br>
 
 ## Description 
 __FORMAT__

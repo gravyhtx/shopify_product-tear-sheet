@@ -25,7 +25,8 @@ Once data is set in local storage a new page is opened in a separate tab using a
 
 __TIPS__
 <br>
-* If you want to add "Dimensions" of the product you can put that info in the __"Barcode"__ input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called. It doesn't necessarily need to be the "Barcode"... same goes for __"SKU"__, but for the purposes of this demo the "SKU" is used as it was intended and the "Barcode" is used to display the dimensions.<br>
+* If you want to add "Dimensions" of the product you can put that info in the __"Barcode"__ input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called. It doesn't necessarily need to be the "Barcode"... same goes for __"SKU"__, but for the purposes of this demo the "SKU" is used as it was intended and the "Barcode" is used to display the dimensions.
+
 * When you print the Tear Sheet in edit mode, you will likely have a bar at the bottom that will get printed. To close this you will need to hide that bar.
     - Comment out the print code on `page.tear-sheet.liquid` at lines 144-145.
     - Open the Tear Sheet and choose to close preview

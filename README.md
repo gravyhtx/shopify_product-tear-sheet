@@ -1,4 +1,4 @@
-# Shopify Tear Sheet
+# Shopify Tear-Sheet
 Add a simple, free Tear Sheet function to your Product pages.
 
 ## Description 

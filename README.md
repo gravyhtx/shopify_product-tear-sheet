@@ -9,7 +9,7 @@ Add a button on your Product pages that prints a simple Tear Sheet.
 <br><br>
 
 ## Description 
-__FORMAT__:&emsp;Shopify Liquid templating language
+__FORMAT__:&nbsp;&nbsp;Shopify Liquid templating language
 <br><br>
 
 __DETAILS__

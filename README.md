@@ -31,7 +31,7 @@ __TIPS__
     - Reopen Tear Sheet and it should now print without the bottom bar
         <p><i>** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can <a href="https://github.com/gravyhtx/shopify_product-tear-sheet/issues" target="_blank">update this README</a>. **</i></p>
         <br>
-    - This same concept can be applied to any HTML code with Vanilla JavaScript. You'll grab the elements to insert into the tear sheet based on your own variables or grabbing elements from the DOM in place of the Liquid syntax.
+        <p><i>This same concept can be applied to any HTML code with Vanilla JavaScript. You'll grab the elements to insert into the tear sheet based on your own variables or grabbing elements from the DOM in place of the Liquid syntax.</i></p>
 <br>
 
 ## Product Elements

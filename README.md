@@ -22,7 +22,7 @@ Once data is set in local storage a new page is opened in a separate tab using a
     - Go back to the previous page (your Tear Sheet) and it should be gone now.
     - Close this page and remove the comments at 144-145 on "page.tear-sheet.liquid"
     - Open Tear Sheet again and it should now print without the bottom bar<br><br>
-        _Emphasized text_ ** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can update this README! **<br>
+        _** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can update this README! **_<br>
 
 ## PRODUCT ELEMENTS
 - Title

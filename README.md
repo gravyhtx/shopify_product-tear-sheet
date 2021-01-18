@@ -1,9 +1,10 @@
 # Shopify Tear-Sheet
-Add a button on your Product pages that prints a simple Tear Sheet.
+    Add a button on your Product pages that prints a simple Tear Sheet.
 
 ## Description 
 #### FORMAT
-Shopify Liquid templating language
+    Shopify Liquid templating language
+<br><br>
 
 #### DETAILS
 Tear sheets are used to provide your clients a print out or downloadable PDF of the just the essential information needed from a product to save for considering a future purchase decision. These are great additions to your site and most options aren't free.
@@ -22,7 +23,8 @@ Once data is set in local storage a new page is opened in a separate tab using a
     - Go back to the previous page (your Tear Sheet) and it should be gone now.
     - Close this page and remove the comments at 144-145 on "page.tear-sheet.liquid"
     - Open Tear Sheet again and it should now print without the bottom bar<br><br>
-        _** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can update this README! **_<br>
+        _** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can update this README! **_
+        <br><br>
 
 ## PRODUCT ELEMENTS
 - Title

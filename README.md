@@ -1,9 +1,9 @@
 # Shopify Tear-Sheet
-    Add a button on your Product pages that prints a simple Tear Sheet.
+Add a button on your Product pages that prints a simple Tear Sheet.
 
 ## Description 
 #### FORMAT
-    Shopify Liquid templating language
+Shopify Liquid templating language
 <br><br>
 
 #### DETAILS

@@ -7,7 +7,7 @@ Print a simple Tear Sheet on Product pages made in Shopify's Liquid templating l
 - [Description](#description)<br>
 - [Product&nbsp;Elements](#product-elements)<br>
 - [Installation](#installation)<br>
-<br>
+
 
 ## Description
 

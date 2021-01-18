@@ -8,6 +8,7 @@ Print a simple Tear Sheet on Product pages made in Shopify's Liquid templating l
 - [Product&nbsp;Elements](#product-elements)<br>
 - [Installation](#installation)<br>
 <br>
+
 ## Description
 
 __DETAILS__
@@ -17,7 +18,8 @@ Tear sheets are used to provide your clients a print out or downloadable PDF of 
 This project uses some easy to use code using local storage to get and set product information to automatically open a new tab and print as a simple Tear Sheet and close after the document is printed, saved, or cancelled. When a user triggers an `onclick` event on an input tag button this code will open a new tab with data populated on a standard blank page without leaving your Shopify website's URL. A function uses native Shopify Liquid variables of the `current_variant` to grab all the details needed from the product page which uses the variant's unique ID plus a unique descriptor to set these variables as items in local storage.
 
 Once data is set in local storage a new page is opened in a separate tab using a blank HTML layout from the `tear_sheet.liquid` Template. The basic HTML data is set using stripped down head tag from the theme layout to create a blank space to populate `{{ content_for_layout }}` with items set in local storage.
-<br><br>
+<br>
+
 __TIPS__
 
 * If you want to add "Dimensions" of the product you can put that info in the __"Barcode"__ input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called. It doesn't necessarily need to be the "Barcode"... same goes for __"SKU"__, but for the purposes of this demo the "SKU" is used as it was intended and the "Barcode" is used to display the dimensions.
@@ -39,8 +41,8 @@ This is a list of all the elements grabbed from the product page used in this pr
 - SKU
 - Barcode (or "Dimensions")
 - Price
+<br>
 
-<br><br>
 ## Installation
 
 The folders in this repository are the same folder locations found in the Shopify Liquid Code Editor. If you're unfamiliar with how to get to the editor, check the Shopify Documentation, specifically by [clicking here](https://help.shopify.com/en/manual/online-store/os/using-themes/change-the-layout/theme-code). I included some comments in the `.liquid` files but let's go over how to install these files.

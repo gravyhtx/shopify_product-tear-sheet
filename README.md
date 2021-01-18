@@ -3,9 +3,9 @@ Add a button on your Product pages that prints a simple Tear Sheet.
 
 <h3>TABLE OF CONTENTS</h3>
 
-[Description](#Description)
-[Product&nbsp;Elements](#Product&nbsp;Elements)
-[Installation](#Installation)
+[Description](#Description)<br>
+[Product&nbsp;Elements](#Product&nbsp;Elements)<br>
+[Installation](#Installation)<br>
 
 ## Description 
 __FORMAT__
@@ -25,7 +25,7 @@ Once data is set in local storage a new page is opened in a separate tab using a
 __TIPS__
 <br>
 * If you want to add "Dimensions" of the product you can put that info in the "Barcode" input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called.
-- When you print the Tear Sheet in edit mode, you will likely have a bar at the bottom that will get printed. To close this you will need to hide that bar.
+* When you print the Tear Sheet in edit mode, you will likely have a bar at the bottom that will get printed. To close this you will need to hide that bar.
     1. Comment out the print code on "page.tear-sheet.liquid" at lines 144-145.
     2. Open the Tear Sheet and choose to close preview
     3. On that page choose to hide that bar (far right)

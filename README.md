@@ -30,6 +30,7 @@ __TIPS__
         <br><br>
 
 ## PRODUCT ELEMENTS
+This is a list of all the elements grabbed from the product page used in this project:
 - Title
 - Image
 - Description

@@ -46,7 +46,7 @@ This is a list of all the elements grabbed from the product page used in this pr
 
 ## Installation
 
-The folders in this repository are the same folder locations found in the Shopify Liquid Code Editor. If you're unfamiliar with how to get to the editor, check the Shopify Documentation, specifically by [clicking here](https://help.shopify.com/en/manual/online-store/os/using-themes/change-the-layout/theme-code). I included some comments in the `.liquid` files but let's go over how to install these files.
+The folders in this repository are named after the same folder locations found in the Shopify Liquid Code Editor. If you're unfamiliar with how to get to the editor, check the Shopify Documentation, specifically by [clicking here](https://help.shopify.com/en/manual/online-store/os/using-themes/change-the-layout/theme-code). I included some comments in the `.liquid` files but let's go over how to install these files.
 
 
 <h3>Setup</h3>

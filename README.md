@@ -32,7 +32,7 @@ __TIPS__
     - Go back to the previous page (your Tear Sheet) and it should be gone now
     - Close this page and remove the comments at 144-145 on `page.tear-sheet.liquid`
     - Open Tear Sheet again and it should now print without the bottom bar
-        <p><i>** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can [update this README!](https://github.com/gravyhtx/shopify_product-tear-sheet/issues) **</i></p>
+        <p><i>** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can <a href="https://github.com/gravyhtx/shopify_product-tear-sheet/issues">update this README!</a> **</i></p>
         <br><br>
 
 ## Product Elements

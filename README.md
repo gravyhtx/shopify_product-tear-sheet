@@ -1,5 +1,5 @@
 # Shopify Tear-Sheet
-Add a button on your Product pages that prints a simple Tear Sheet.
+Add a button on your Product pages that prints a simple Tear Sheet using Shopify Liquid templating language.
 
 <h3>TABLE OF CONTENTS</h3>
 
@@ -8,9 +8,7 @@ Add a button on your Product pages that prints a simple Tear Sheet.
 - [Installation](#installation)<br>
 <br><br>
 
-## Description 
-__FORMAT__:&nbsp;&nbsp;Shopify Liquid templating language
-<br><br>
+## Description
 
 __DETAILS__
 

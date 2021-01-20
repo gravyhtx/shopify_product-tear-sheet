@@ -34,6 +34,7 @@ __TIPS__
 <br>
 
 ## Product Elements
+
 This is a list of all the elements grabbed from the product page used in this project:
 - Title
 - Image
@@ -41,6 +42,16 @@ This is a list of all the elements grabbed from the product page used in this pr
 - SKU
 - Barcode (or "Dimensions")
 - Price
+
+__Shopify Liquid Varibles__
+
+Title: `{{ product.title }}`
+Image: `{https://cdn.shopify.com/path/to/{{product.featured_image}}`
+Description: `document.getElementById('descPrint').innerHTML` (Grab _all_ HTML code inside description)
+SKU: `{{ current_variant.sku }}`
+Barcode: `{{ current_variant.barcode }}`
+Price: `{{ current_variant.price | money }}`
+
 <br>
 
 ## Installation
@@ -71,4 +82,4 @@ In the [`product.liquid`](https://github.com/gravyhtx/shopify_product-tear-sheet
 Now you should have a clickable button (you will likely need to style) on every product page. When you click on that button the script will grab all the "Product Elements", set those values in local storage, open the "Tear Sheet" page in a new tab, and automatically open the Print dialogue which will close the tab once the user chooses to print, save, or cancel. Each time you go to a new product page or refresh the current product page `localstorage` will be cleared and ready to accept new values.
 <br><br>
 
-_Note: Different themes may have the Product page code in other folders. You may need to dig around to find where the main HTML inside the Product pages is located and experiment with implementing the `<input>` button found in this repository's `product.liquid` code. You can choose to use a different tag but this code should execute the same way if you make the necessary changes to your code._
+<i style="color:darkgray">Note: Different themes may have the Product page code in other folders. You may need to dig around to find where the main HTML inside the Product pages is located and experiment with implementing the `<input>` button found in this repository's `product.liquid` code. You can choose to use a different tag but this code should execute the same way if you make the necessary changes to your code.</i>

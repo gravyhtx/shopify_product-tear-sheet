@@ -92,9 +92,10 @@
 </section>
 
 <script>
-  
-  
+
 //////// GET ELEMENTS ////////
+
+    // var isLoaded = false;
 
     // PRODUCT ID
     console.log(prodIdUrl) // Variable created in "tear_sheet.liquid" template
@@ -143,15 +144,31 @@
     
     // SET DIMENSIONS (BARCODE)
     document.getElementById('sheet-dimens').innerHTML = sheetDimens
-    
+ 
 
 /////////////////////////////////////////////////////////////////
 //////// PRINT WINDOW AND CLOSE AFTER ACTION IS COMPLETE ////////
 /////////////////////////////////////////////////////////////////
 
-    setTimeout(function () { window.print(); }, 500);
-  	window.onfocus = function () { setTimeout(function () { window.close(); }, 500); }
-  
+    function printTearSheet() {
+        // isLoaded = true;
+        setTimeout(function () { window.print(); }, 1000);
+        window.onfocus = function () {
+        setTimeout(function () {
+            window.close(); }, 1000);
+        }
+    }
+    
+    window.onload = printTearSheet();
+
+    // if (isLoaded != false) {
+    //     setTimeout(function () { window.print(); }, 1000);
+    //     window.onfocus = function () {
+    //     setTimeout(function () {
+    //         window.close(); }, 1000);
+    //     }
+    // }
+
 </script>
 
 <!-- Genius coding by Grävy Design Co. // @gravyhtx -->

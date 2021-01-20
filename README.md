@@ -43,7 +43,7 @@ This is a list of all the elements grabbed from the product page used in this pr
 - Barcode (or "Dimensions")
 - Price
 <br><br>
-<h4>Shopify Liquid Varibles</h4>
+<h3>Shopify Liquid Varibles</h3>
 
 __Title:__ `{{ product.title }}`<br>
 __Image:__ `{https://cdn.shopify.com/path/to/{{product.featured_image}}`<br>

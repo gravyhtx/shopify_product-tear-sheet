@@ -43,14 +43,14 @@ This is a list of all the elements grabbed from the product page used in this pr
 - Barcode (or "Dimensions")
 - Price
 
-__Shopify Liquid Varibles__
+<h4>Shopify Liquid Varibles</h4>
 
-Title: `{{ product.title }}`<br>
-Image: `{https://cdn.shopify.com/path/to/{{product.featured_image}}`<br>
-Description: `document.getElementById('descPrint').innerHTML` (Grab _all_ HTML code inside description)<br>
-SKU: `{{ current_variant.sku }}`<br>
-Barcode: `{{ current_variant.barcode }}`<br>
-Price: `{{ current_variant.price | money }}`<br>
+__Title:__ `{{ product.title }}`<br>
+__Image:__ `{https://cdn.shopify.com/path/to/{{product.featured_image}}`<br>
+__Description:__ `document.getElementById('descPrint').innerHTML` (Grab all HTML code inside description)<br>
+__SKU:__ `{{ current_variant.sku }}`<br>
+__Barcode:__ `{{ current_variant.barcode }}`<br>
+__Price:__ `{{ current_variant.price | money }}`<br>
 
 <br>
 

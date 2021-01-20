@@ -46,7 +46,7 @@ This is a list of all the elements grabbed from the product page used in this pr
 __Shopify Liquid Varibles__
 
 Title: `{{ product.title }}`<br>
-Image: `{https://cdn.shopify.com/path/to/{{product.featured_image}}`
+Image: `{https://cdn.shopify.com/path/to/{{product.featured_image}}`<br>
 Description: `document.getElementById('descPrint').innerHTML` (Grab _all_ HTML code inside description)<br>
 SKU: `{{ current_variant.sku }}`<br>
 Barcode: `{{ current_variant.barcode }}`<br>

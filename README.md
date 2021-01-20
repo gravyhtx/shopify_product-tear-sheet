@@ -47,7 +47,7 @@ This is a list of all the elements grabbed from the product page used in this pr
 
 __Title:__ `{{ product.title }}`<br>
 __Image:__ `{https://cdn.shopify.com/path/to/{{product.featured_image}}`<br>
-__Description:__ `document.getElementById('descPrint').innerHTML` _grab all HTML code inside description_<br>
+__Description:__ `document.getElementById('descPrint').innerHTML` _[grab all HTML code inside description]_<br>
 __SKU:__ `{{ current_variant.sku }}`<br>
 __Barcode:__ `{{ current_variant.barcode }}`<br>
 __Price:__ `{{ current_variant.price | money }}`<br>

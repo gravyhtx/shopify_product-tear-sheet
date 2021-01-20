@@ -5,16 +5,13 @@
 <style>
   
   body {
-    font-family: Calibri, sans-serif;
+    font-family: Montserrat, Calibri, sans-serif;
     text-align: center;
   }
 
   .feat {
     max-width: 350px;
     max-height: 300px;
-	/*   IDK why I had to do this "margin-right" to center the image but maybe you can fix this and let me know what you did   */
-    /*   Report any issues/bug-fixes at https://github.com/gravyhtx/shopify_product-tear-sheet/issues   */
-    margin-right: 15px;
   }
 
   .logo {
@@ -60,17 +57,16 @@
 
   <!-- Enter the pathway to the logo you'd like to use in "src" -->
   <!-- You can use a URL or call it from your assets. Read Shopify Liquid documentation for more information -->
-  <img class="logo" id="logo" src="/logo.png">
-
+  <br><br>
+  <img class="logo" id="logo" src="https://cdn.shopify.com/s/files/1/0439/2868/2653/files/MOXIE_LOGO.png?v=1600200105">
   <br><br>
   
-  <div style="margin: 0; position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
+  <div style="margin: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
     
   	<br><br><br><br>
     
     <img class="feat" id="sheet-image">
     
-    <!-- Again, style is up to you -->
     <div style="margin: 20px"></div>
     <div class="title" id="sheet-title"></div>
     <div style="margin: 5px"></div>
@@ -83,10 +79,7 @@
       
   </div>
 
-  <div class="desc" id="sheet-desc"></div>
-
-  <!-- ADD YOUR ADDRESS HERE OR WHATEVER -->
-  <div class="foot">420 Address St., Somewhere, USA &nbsp;. &nbsp;555.555.555 &nbsp;. &nbsp;your@email.com</div>
+  <div class="foot">2031 West Alabama Street, Houston, Texas 77098 &nbsp;. &nbsp;713.636.2340 &nbsp;. &nbsp;info@moxie-interiors.com</div>
   
 
 </section>
@@ -95,79 +88,70 @@
 
 //////// GET ELEMENTS ////////
 
-    // var isLoaded = false;
-
     // PRODUCT ID
-    console.log(prodIdUrl) // Variable created in "tear_sheet.liquid" template
-
+    console.log(prodIdUrl)
+    
     // GET TITLE
-    const sheetTitleId = prodId + "title";
-    const sheetTitle = localStorage.getItem(sheetTitleId)
+      const sheetTitleId = prodId + "title";
+      const sheetTitle = localStorage.getItem(sheetTitleId)
+      console.log(sheetTitle)
 
     // GET DESCRIPTION
-    const sheetDescId = prodId + "description";
-    const sheetDesc = localStorage.getItem(sheetDescId)
-    
-    // GET IMAGE
-    const sheetImgId = prodId + "image";
-    const sheetImg = localStorage.getItem(sheetImgId)
-    
-    // GET PRICE
-    const sheetPriceId = prodId + "price";
-    const sheetPrice = localStorage.getItem(sheetPriceId)
-    
-    // GET SKU
-    const sheetSkuId = prodId + "sku";
-    const sheetSku = localStorage.getItem(sheetSkuId)
-    
-    // GET DIMENSIONS
-    const sheetDimensId = prodId + "dimensions";
-    const sheetDimens = localStorage.getItem(sheetDimensId)    
+      const sheetDescId = prodId + "description";
+      const sheetDesc = localStorage.getItem(sheetDescId)
+      console.log(sheetDesc)
 
-    
+    // GET IMAGE
+      const sheetImgId = prodId + "image";
+      const sheetImg = localStorage.getItem(sheetImgId)
+      console.log(sheetImg)
+
+    // GET PRICE
+      const sheetPriceId = prodId + "price";
+      const sheetPrice = localStorage.getItem(sheetPriceId)
+      console.log(sheetPrice)
+
+    // GET SKU
+      const sheetSkuId = prodId + "sku";
+      const sheetSku = localStorage.getItem(sheetSkuId)
+      console.log(sheetSku)
+
+    // GET DIMENSIONS
+      const sheetDimensId = prodId + "dimensions";
+      const sheetDimens = localStorage.getItem(sheetDimensId)
+      console.log(sheetDimens)
+
+
 //////// SET ELEMENTS ////////
 
     // SET TITLE
-    document.getElementById('sheet-title').innerHTML = sheetTitle
-    
+      document.getElementById('sheet-title').innerHTML = sheetTitle
+
     // SET DESCRIPTION
-    document.getElementById('sheet-desc').innerHTML = sheetDesc
-    
+      document.getElementById('sheet-desc').innerHTML = sheetDesc
+
     // SET IMAGE
-    document.getElementById('sheet-image').src = sheetImg
-    
+      document.getElementById('sheet-image').src = sheetImg
+
     // SET PRICE
-    document.getElementById('sheet-price').innerHTML = sheetPrice
-    
+      document.getElementById('sheet-price').innerHTML = sheetPrice
+
     // SET SKU
-    document.getElementById('sheet-sku').innerHTML = sheetSku
-    
-    // SET DIMENSIONS (BARCODE)
-    document.getElementById('sheet-dimens').innerHTML = sheetDimens
- 
+      document.getElementById('sheet-sku').innerHTML = sheetSku
 
-/////////////////////////////////////////////////////////////////
-//////// PRINT WINDOW AND CLOSE AFTER ACTION IS COMPLETE ////////
-/////////////////////////////////////////////////////////////////
+    // SET DIMENSIONS
+      document.getElementById('sheet-dimens').innerHTML = sheetDimens
 
-    function printTearSheet() {
-        // isLoaded = true;
-        setTimeout(function () { window.print(); }, 1000);
-        window.onfocus = function () {
-        setTimeout(function () {
-            window.close(); }, 1000);
-        }
+  
+  function printTearSheet() {
+    setTimeout(function () { window.print(); }, 1000);
+  	window.onfocus = function () {
+      setTimeout(function () {
+        window.close(); }, 1000);
     }
-    
-    window.onload = printTearSheet();
+  }
 
-    // if (isLoaded != false) {
-    //     setTimeout(function () { window.print(); }, 1000);
-    //     window.onfocus = function () {
-    //     setTimeout(function () {
-    //         window.close(); }, 1000);
-    //     }
-    // }
+  window.onload = printTearSheet();
 
 </script>
 

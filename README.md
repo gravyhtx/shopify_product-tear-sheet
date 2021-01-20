@@ -47,7 +47,7 @@ This is a list of all the elements grabbed from the product page used in this pr
 
 __Title:__ `{{ product.title }}`<br>
 __Image:__ `{https://cdn.shopify.com/path/to/{{product.featured_image}}`<br>
-__Description:__ `document.getElementById('descPrint').innerHTML` _[grab all HTML code inside description]_<br>
+__Description:__ `document.getElementById('descPrint').innerHTML` _[get all HTML code inside description]_<br>
 __SKU:__ `{{ current_variant.sku }}`<br>
 __Barcode:__ `{{ current_variant.barcode }}`<br>
 __Price:__ `{{ current_variant.price | money }}`<br>
@@ -56,7 +56,7 @@ __Price:__ `{{ current_variant.price | money }}`<br>
 
 ## Installation
 
-The folders in this repository are named after the same folder locations found in the Shopify Liquid Code Editor. If you're unfamiliar with how to get to the editor, check the Shopify Documentation, specifically by [clicking here](https://help.shopify.com/en/manual/online-store/os/using-themes/change-the-layout/theme-code). I included some comments in the `.liquid` files but let's go over how to install these files.
+The folders in this repository are named after the same folder locations found in the Shopify Liquid Code Editor. If you're unfamiliar with how to get to the editor, check the Shopify Documentation, specifically by <a href="https://help.shopify.com/en/manual/online-store/os/using-themes/change-the-layout/theme-code" target="_blank">clicking here</a>. I included some comments in the `.liquid` files but let's go over how to install these files.
 
 
 <h3>Setup</h3>

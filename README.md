@@ -45,12 +45,12 @@ This is a list of all the elements grabbed from the product page used in this pr
 
 __Shopify Liquid Varibles__
 
-Title: `{{ product.title }}`
+Title: `{{ product.title }}`<br>
 Image: `{https://cdn.shopify.com/path/to/{{product.featured_image}}`
-Description: `document.getElementById('descPrint').innerHTML` (Grab _all_ HTML code inside description)
-SKU: `{{ current_variant.sku }}`
-Barcode: `{{ current_variant.barcode }}`
-Price: `{{ current_variant.price | money }}`
+Description: `document.getElementById('descPrint').innerHTML` (Grab _all_ HTML code inside description)<br>
+SKU: `{{ current_variant.sku }}`<br>
+Barcode: `{{ current_variant.barcode }}`<br>
+Price: `{{ current_variant.price | money }}`<br>
 
 <br>
 

@@ -50,7 +50,9 @@ __Image:__ `{https://cdn.shopify.com/path/to/{{product.featured_image}}`<br>
 __Description:__ `document.getElementById('descPrint').innerHTML` _[get all HTML code inside description]_<br>
 __SKU:__ `{{ current_variant.sku }}`<br>
 __Barcode:__ `{{ current_variant.barcode }}`<br>
-__Price:__ `{{ current_variant.price | money }}`<br>
+__Price:__ `{{ current_variant.price | money }}`<br><br>
+
+The `current_variant` variable is pimarily where we are getting the data from the each page's unique elements. This may not be the name of the variable on your theme so look for an assignment to the `product.selected_or_first_available_variant` which in the Debut theme assigns the variable at `{%- assign current_variant = product.selected_or_first_available_variant -%}` on line `11` found in `Snippets/product-template.liquid`. The theme I am working with is called `product.liquid` in the same folder so find the `product.selected_or_first_available_variant` and either use the varible your theme has set, create your own variable, or use `product.selected_or_first_available_variant` instead of the `current_variant` variable used in `product.liquid` as found in this repository.
 
 <br>
 
@@ -75,11 +77,13 @@ Ok. Now you can save your "Tear Sheet" page.
 
 You have now created a blank page ready to accept values from local storage based on the items you will set in your Product page's code. In order to set items you must add code to `product.liquid` found in the [Snippets](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Snippets/product.liquid) folder.
 
-Go back to the Code Editor and you will find a `product.liquid` file in your "Snippets" folder. Here you will need to add two things to this file. You will need a clickable button and some script to save the [Product&nbsp;Elements](#product-elements) that will populate your Tear Sheet.
+Go back to the Code Editor and you will find a file usually called something like `product-template.liquid` or `product.liquid` in your "Snippets" folder. You may have to look around but it's going to be wherever the main product content code is Here you will need to add two things to this file. You will need a clickable button and some script to save the [Product&nbsp;Elements](#product-elements) that will populate your Tear Sheet.
 
 In the [`product.liquid`](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Snippets/product.liquid) file you will need to add line `10` to the code wherever you want to have the clickable "TEAR SHEET" button. Then add all of the script from line `13` down at the end of your `product.liquid` file in the Code Editor in the "Snippets" folder. Be sure to edit the path to your logo on line `49` after the 'imgPrint' variable before you're ready to test this out.
 
 Now you should have a clickable button (you will likely need to style) on every product page. When you click on that button the script will grab all the "Product Elements", set those values in local storage, open the "Tear Sheet" page in a new tab, and automatically open the Print dialogue which will close the tab once the user chooses to print, save, or cancel. Each time you go to a new product page or refresh the current product page `localstorage` will be cleared and ready to accept new values.
 <br><br>
 
-<i style="color:darkgray">Note: Different themes may have the Product page code in other folders. You may need to dig around to find where the main HTML inside the Product pages is located and experiment with implementing the `<input>` button found in this repository's `product.liquid` code. You can choose to use a different tag but this code should execute the same way if you make the necessary changes to your code.</i>
+<i style="color:darkgray">
+Note: As mentioned above, different themes may have the Product page code in other folders. You may need to dig around to find where the main HTML inside the Product pages is located. Experiment with implementing the `<input>` button found in this repository's `product.liquid` code. You can choose to use a different tag but this code should execute the same way if you make the necessary changes to your code to trigger the `printDiv()` function.
+</i>

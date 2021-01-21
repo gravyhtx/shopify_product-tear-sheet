@@ -52,7 +52,7 @@ __SKU:__ `{{ current_variant.sku }}`<br>
 __Barcode:__ `{{ current_variant.barcode }}`<br>
 __Price:__ `{{ current_variant.price | money }}`<br><br>
 
-The `current_variant` variable is pimarily where we are getting the data from the each page's unique elements. This may not be the name of the variable on your theme so look for an assignment to the `product.selected_or_first_available_variant` which in the Debut theme assigns the variable at `{%- assign current_variant = product.selected_or_first_available_variant -%}` on line `11` found in `Snippets/product-template.liquid`. The theme I am working with is called `product.liquid` in the same folder so find the `product.selected_or_first_available_variant` and either use the varible your theme has set, create your own variable, or use `product.selected_or_first_available_variant` instead of the `current_variant` variable used in `product.liquid` as found in this repository.
+The `current_variant` variable is pimarily where we are getting the data from the each page's unique elements. This may not be the name of the variable on your theme so look for an assignment to the `product.selected_or_first_available_variant` which in the Debut theme assigns the variable at `{%- assign current_variant = product.selected_or_first_available_variant -%}` on line `11` found in `Snippets/product-template.liquid`. The product page on the Theme I am working with is called `product.liquid` in the same folder. If necessary on your Theme, find the `product.selected_or_first_available_variant` and either use the varible your theme has set, create your own variable, or use `product.selected_or_first_available_variant` instead of the `current_variant` variable as used in `product.liquid` as found in this repository.
 
 <br>
 

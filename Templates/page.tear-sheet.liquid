@@ -1,7 +1,6 @@
 {% layout 'tear_sheet' %}
 <!-- USES "tear_sheet.liquid" TEMPLATE AS HTML LAYOUT FOR TEAR SHEET -->
 
-<!-- Up to you... the style for the HTML is your call  -->
 <style>
   
   @page {
@@ -17,13 +16,15 @@
       padding: 0;
     }
   }
-  
+
+  /*** Up to you... the rest of the styling is your call ***/
+
   main {
     font-family: Montserrat, Calibri, sans-serif;
     text-align: center;
 
   }
-  
+
   .logo-div {
     position: -webkit-sticky;
   	position: sticky;
@@ -69,8 +70,6 @@
   }
 
 	footer {
-/*     position: absolute;
-    bottom: 0; */
     height: 50px;
     width: 100%;
     text-align: center;
@@ -81,12 +80,10 @@
 
 </style>
 
-
-
 <section>
 
   <!-- Enter the pathway to the logo you'd like to use in "src" -->
-  <!-- You can use a URL or call it from your assets. Read Shopify Liquid documentation for more information -->
+  <!-- You can use a URL, call it from your assets, etc. Read Shopify Liquid documentation for more information -->
   <img class="logo" id="logo" src="https://cdn.shopify.com/path/to/logo.png">
   <br><br><br><br>
 
@@ -95,7 +92,7 @@
     <br><br>
     <div style="margin: 20px !important"></div>
     <div class="title" id="sheet-title"></div>
-    <div style="font-size:12px; margin-bottom:2px; !important" id="sheet-sku"></div>
+    <div style="font-size:12px; margin-bottom:2px;" id="sheet-sku"></div>
     <div style="font-size:12px" id="sheet-dimens"></div>
     <br>
     <div class="price" id="sheet-price"></div>
@@ -163,36 +160,8 @@
     // SET DIMENSIONS
       document.getElementById('sheet-dimens').innerHTML = sheetDimens
 
-  
-//////// PRINT WINDOW ////////
-      
-    var printed = false
 
-    function printPage() {
-        window.print();
-        printed = true;
-      }
-
-    function printTearSheet() {
-      window.onload = printPage()
-      if (printed === true) {
-        setTimeout(function () {
-        window.close(); }, 1000);
-      }
-    }  
-    //     SIMPLER OPTION...
-    //     window.onload = printTearSheet();
-    docReady(printTearSheet())
-
-    function docReady(e) {
-      // see if DOM is already available
-      if (document.readyState === "complete" || document.readyState === "interactive") {
-          // call on next available tick
-          setTimeout(e, 1);
-      } else {
-          document.addEventListener("DOMContentLoaded", e);
-      }
-    } 
+//////// BROWSER STYLING FOR PRINT //////// 
 
     // Opera 8.0+
     var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
@@ -217,34 +186,72 @@
 
     // Blink engine detection
     var isBlink = (isChrome || isOpera) && !!window.CSS;
+    
 
-
-    if (isSafari === true) {
-    console.log('safari')
-    document.getElementById('foot').style.bottom = '0';
-    document.getElementById('foot').style.position = 'fixed';
-    document.getElementById('logo').style.marginBottom = '150px';
-    } else {
-    console.log('not safari')
-    document.getElementById('foot').style.bottom = '0';
-    document.getElementById('foot').style.position = 'fixed';
-    document.getElementById('foot').style.marginBottom = '10px';
-    document.getElementById('print-info').style.position = 'absolute';
-    document.getElementById('print-info').style.top = '50%';
-    document.getElementById('print-info').style.left = '50%';
-    document.getElementById('print-info').style.transform = 'translate(-50%,-50%)';
+    if (isSafari != false) {
+      console.log('safari')
+      document.getElementById('foot').style.bottom = '0';
+      document.getElementById('foot').style.position = 'fixed';
+      //// ADD LINE 209 IF YOU WANT EXTRA SPACE AFTER LOGO AND SET SPACING, SAFARI PRINTS DUMB... ////
+      // document.getElementById('logo').style.marginBottom = '30px';
+    }
+    else {
+      console.log('not safari')
+      document.getElementById('foot').style.bottom = '0';
+      document.getElementById('foot').style.position = 'fixed';
+      document.getElementById('foot').style.marginBottom = '10px';
+      document.getElementById('print-info').style.position = 'absolute';
+      document.getElementById('print-info').style.top = '50%';
+      document.getElementById('print-info').style.left = '50%';
+      document.getElementById('print-info').style.transform = 'translate(-50%,-50%)';
     }
 
+    //// ALL BOOLEAN VARIABLES FOR BROWSERS ////
+      isFirefox;
+      isChrome;
+      isSafari;
+      isOpera;
+      isIE;
+      isEdge;
+      isEdgeChromium;
+      isBlink;
 
-    // BOOLEAN VARIABLES
-    isFirefox
-    isChrome
-    isSafari
-    isOpera
-    isIE
-    isEdge
-    isEdgeChromium
-    isBlink
+
+//////////////////////////////  
+//////// PRINT WINDOW ////////
+//////////////////////////////
+
+    var printed = false
+
+    function printPage() {
+        window.print();
+        printed = true;
+      }
+
+    function printTearSheet() {
+      window.onload = printPage()
+      if (printed === true) {
+        setTimeout(function () {
+        window.close(); }, 1000);
+      }
+    }  
+
+  //// THIS NEXT PART MIGHT BE A BIT OVERLY COMPLICATED...
+  //// COMMENT OUT LINES 241-251 AND UN-COMMENT @ LINE 254 FOR "SIMPLER OPTION"
+    docReady(printTearSheet())
+
+    function docReady(e) {
+      // see if DOM is already available
+      if (document.readyState === "complete" || document.readyState === "interactive") {
+          // call on next available tick
+          setTimeout(e, 1);
+      } else {
+          document.addEventListener("DOMContentLoaded", e);
+      }
+    }
+
+  //// SIMPLER OPTION
+      // window.onload = printTearSheet();
 
 </script>
 

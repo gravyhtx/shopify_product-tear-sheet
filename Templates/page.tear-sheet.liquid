@@ -4,46 +4,78 @@
 <!-- Up to you... the style for the HTML is your call  -->
 <style>
   
-  body {
+  @page {
+      size: A4;
+      margin: 0;
+  }
+  
+  @media print {
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  
+  main {
     font-family: Montserrat, Calibri, sans-serif;
     text-align: center;
+
+  }
+  
+  .logo-div {
+    position: -webkit-sticky;
+  	position: sticky;
+  }
+  
+  .logo {
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 10px;
+	  display: -webkit-block;
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
   }
 
   .feat {
     max-width: 350px;
     max-height: 300px;
-  }
-
-  .logo {
-    width: 200px;
+    position: static;
   }
 
   .title {
     font-size: 18px;
+    margin-bottom: 8px;
     font-weight: 200;
+    position: relative;
   }
 
   .price {
     font-size: 15px;
     font-weight: 200;
+    position: static;
   }
 
   .desc {
     font-size: 13px;
     font-weight: 200;
-    margin-left: -100px;
-    margin-right: -100px;
+    padding-left: -50px;
+    padding-right: -50px;
     text-align:center;
     background-position: bottom 45px;
+    position: static;
   }
 
-  .foot {
-    font-size: 12px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+	footer {
+/*     position: absolute;
+    bottom: 0; */
+    height: 50px;
+    width: 100%;
     text-align: center;
     font-weight: medium;
+    font-size: 12px;
     width: 100%;
   }
 
@@ -52,35 +84,24 @@
 
 
 <section>
-  
-  <br><br>
 
   <!-- Enter the pathway to the logo you'd like to use in "src" -->
   <!-- You can use a URL or call it from your assets. Read Shopify Liquid documentation for more information -->
-  <br><br>
-  <img class="logo" id="logo" src="https://cdn.shopify.com/s/files/1/0439/2868/2653/files/MOXIE_LOGO.png?v=1600200105">
-  <br><br>
-  
-  <div style="margin: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
-    
-  	<br><br><br><br>
-    
-    <img class="feat" id="sheet-image">
-    
-    <div style="margin: 20px"></div>
+  <img class="logo" id="logo" src="https://cdn.shopify.com/path/to/logo.png">
+  <br><br><br><br>
+
+  <img class="feat" id="sheet-image">
+  <div>
+    <br><br>
+    <div style="margin: 20px !important"></div>
     <div class="title" id="sheet-title"></div>
-    <div style="margin: 5px"></div>
-    <div class="desc" id="sheet-desc"></div> 
-    <br>
-    <div style="font-size:12px; margin-bottom:2px;" id="sheet-sku"></div>
+    <div style="font-size:12px; margin-bottom:2px; !important" id="sheet-sku"></div>
     <div style="font-size:12px" id="sheet-dimens"></div>
     <br>
     <div class="price" id="sheet-price"></div>
-      
   </div>
 
-  <div class="foot">420 Address St., Anywhere, USA &nbsp;. &nbsp;555.555.5555 &nbsp;. &nbsp;your@email.com</div>
-  
+  <footer class="foot" id="foot">420 Address St., Anywhere, USA &nbsp;. &nbsp;555.555.5555 &nbsp;. &nbsp;your@email.com</footer>
 
 </section>
 
@@ -143,15 +164,87 @@
       document.getElementById('sheet-dimens').innerHTML = sheetDimens
 
   
-  function printTearSheet() {
-    setTimeout(function () { window.print(); }, 1000);
-  	window.onfocus = function () {
-      setTimeout(function () {
-        window.close(); }, 1000);
-    }
-  }
+//////// PRINT WINDOW ////////
+      
+    var printed = false
 
-  window.onload = printTearSheet();
+    function printPage() {
+        window.print();
+        printed = true;
+      }
+
+    function printTearSheet() {
+      window.onload = printPage()
+      if (printed === true) {
+        setTimeout(function () {
+        window.close(); }, 1000);
+      }
+    }  
+    //     SIMPLER OPTION...
+    //     window.onload = printTearSheet();
+    docReady(printTearSheet())
+
+    function docReady(e) {
+      // see if DOM is already available
+      if (document.readyState === "complete" || document.readyState === "interactive") {
+          // call on next available tick
+          setTimeout(e, 1);
+      } else {
+          document.addEventListener("DOMContentLoaded", e);
+      }
+    } 
+
+    // Opera 8.0+
+    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+    // Firefox 1.0+
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+
+    // Safari 3.0+ "[object HTMLElementConstructor]" 
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+
+    // Internet Explorer 6-11
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+    // Edge 20+
+    var isEdge = !isIE && !!window.StyleMedia;
+
+    // Chrome 1 - 79
+    var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+
+    // Edge (based on chromium) detection
+    var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
+
+    // Blink engine detection
+    var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+
+    if (isSafari === true) {
+    console.log('safari')
+    document.getElementById('foot').style.bottom = '0';
+    document.getElementById('foot').style.position = 'fixed';
+    document.getElementById('logo').style.marginBottom = '150px';
+    } else {
+    console.log('not safari')
+    document.getElementById('foot').style.bottom = '0';
+    document.getElementById('foot').style.position = 'fixed';
+    document.getElementById('foot').style.marginBottom = '10px';
+    document.getElementById('print-info').style.position = 'absolute';
+    document.getElementById('print-info').style.top = '50%';
+    document.getElementById('print-info').style.left = '50%';
+    document.getElementById('print-info').style.transform = 'translate(-50%,-50%)';
+    }
+
+
+    // BOOLEAN VARIABLES
+    isFirefox
+    isChrome
+    isSafari
+    isOpera
+    isIE
+    isEdge
+    isEdgeChromium
+    isBlink
 
 </script>
 

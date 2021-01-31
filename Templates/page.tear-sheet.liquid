@@ -71,7 +71,6 @@
 
 	footer {
     height: 50px;
-    width: 100%;
     text-align: center;
     font-weight: medium;
     font-size: 12px;
@@ -188,14 +187,13 @@
     var isBlink = (isChrome || isOpera) && !!window.CSS;
     
 
-    if (isSafari != false) {
-      console.log('safari')
-      document.getElementById('foot').style.bottom = '0';
-      document.getElementById('foot').style.position = 'fixed';
-      //// ADD LINE 209 IF YOU WANT EXTRA SPACE AFTER LOGO AND SET SPACING, SAFARI PRINTS DUMB... ////
-      // document.getElementById('logo').style.marginBottom = '30px';
-    }
-    else {
+    if (isSafari === true) {
+    console.log('safari')
+    document.getElementById('foot').style.bottom = '0';
+    document.getElementById('foot').style.marginBottom = '-25px';
+    document.getElementById('foot').style.position = 'fixed';
+    document.getElementById('logo').style.marginBottom = '25px';
+    } else {
       console.log('not safari')
       document.getElementById('foot').style.bottom = '0';
       document.getElementById('foot').style.position = 'fixed';
@@ -204,17 +202,20 @@
       document.getElementById('print-info').style.top = '50%';
       document.getElementById('print-info').style.left = '50%';
       document.getElementById('print-info').style.transform = 'translate(-50%,-50%)';
+      document.getElementById('feat').style.height = '1000px !important';
+      document.getElementById('feat').style.maxWidth = '100% !important';
     }
-
-    //// ALL BOOLEAN VARIABLES FOR BROWSERS ////
-      isFirefox;
-      isChrome;
-      isSafari;
-      isOpera;
-      isIE;
-      isEdge;
-      isEdgeChromium;
-      isBlink;
+  
+  
+  // BOOLEAN VARIABLES
+    isFirefox
+    isChrome
+    isSafari
+    isOpera
+    isIE
+    isEdge
+    isEdgeChromium
+    isBlink
 
 
 //////////////////////////////  

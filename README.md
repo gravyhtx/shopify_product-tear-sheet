@@ -79,11 +79,17 @@ You have now created a blank page ready to accept values from local storage base
 
 Go back to the Code Editor and you will find a file usually called something like `product-template.liquid` or `product.liquid` in your "Snippets" folder. You may have to look around but it's going to be wherever the main product content code is Here you will need to add two things to this file. You will need a clickable button and some script to save the [Product&nbsp;Elements](#product-elements) that will populate your Tear Sheet.
 
-In the [`product.liquid`](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Snippets/product.liquid) file you will need to add line `10` to the code wherever you want to have the clickable "TEAR SHEET" button. Then add all of the script from line `13` down at the end of your `product.liquid` file in the Code Editor in the "Snippets" folder. Be sure to edit the path to your logo on line `49` after the 'imgPrint' variable before you're ready to test this out.
+Add all of the script from [Snippets/product.liquid](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Snippets/product.liquid) to the end of the `product.liquid` file in the "Snippets" folder of your Code Editor. Be sure to edit the path to your logo on line `37` (after the 'imgPrint' variable) before you're ready to test this out.
 
-Now you should have a clickable button (you will likely need to style) on every product page. When you click on that button the script will grab all the "Product Elements", set those values in local storage, open the "Tear Sheet" page in a new tab, and automatically open the Print dialogue which will close the tab once the user chooses to print, save, or cancel. Each time you go to a new product page or refresh the current product page `localstorage` will be cleared and ready to accept new values.
+Last, use the HTML found in [`Product_Page/tear-sheet-button.html`](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Product_Page/tear-sheet-button.liquid) and add the code wherever you want to have the clickable "TEAR SHEET" button. I had to add it in a Custom HTML module and style it to fit on my project.
+
+Now you should have a clickable button on every product page. When you click on that button the script will grab all the [Product&nbsp;Elements](#product-elements), set those values in local storage, open the "Tear Sheet" page in a new tab, and automatically open the Print dialogue which will close the tab once the user chooses to print, save, or cancel. Each time you go to a new product page or refresh the current product page `localstorage` will be cleared and ready to accept new values without unnecessarily using up the user's localstorage.
 <br><br>
 
 <i style="color:darkgray">
 Note: As mentioned above, different themes may have the Product page code in other folders. You may need to dig around to find where the main HTML inside the Product pages is located. Experiment with implementing the `<input>` button found in this repository's `product.liquid` code. You can choose to use a different tag but this code should execute the same way if you make the necessary changes to your code to trigger the `printDiv()` function.
+</i>
+<br><br>
+<i style="color:darkgray">
+Made with love by Grävy Design Co. // @gravyhtx
 </i>

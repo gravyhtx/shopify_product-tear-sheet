@@ -81,7 +81,7 @@ Go back to the Code Editor and you will find a file usually called something lik
 
 Add all of the script from [Snippets/product.liquid](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Snippets/product.liquid) to the end of the `product.liquid` file in the "Snippets" folder of your Code Editor. Be sure to edit the path to your logo on line `37` (after the 'imgPrint' variable) before you're ready to test this out.
 
-Last, use the HTML found in [`Product_Page/tear-sheet-button.html`](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Product_Page/tear-sheet-button.liquid) and add the code wherever you want to have the clickable "TEAR SHEET" button. I had to add it in a Custom HTML module and style it to fit on my project.
+Last, use the HTML found in [`Product_Page/tear-sheet-button.html`](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Product_Page/tear-sheet-button.html) and add the code wherever you want to have the clickable "TEAR SHEET" button. I had to add it in a Custom HTML module and style it to fit on my project.
 
 Now you should have a clickable button on every product page. When you click on that button the script will grab all the [Product&nbsp;Elements](#product-elements), set those values in local storage, open the "Tear Sheet" page in a new tab, and automatically open the Print dialogue which will close the tab once the user chooses to print, save, or cancel. Each time you go to a new product page or refresh the current product page `localstorage` will be cleared and ready to accept new values without unnecessarily using up the user's localstorage.
 <br><br>

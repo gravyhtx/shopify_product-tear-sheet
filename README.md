@@ -86,10 +86,10 @@ Last, use the HTML found in [`Product_Page/tear-sheet-button.html`](https://gith
 Now you should have a clickable button on every product page. When you click on that button the script will grab all the [Product&nbsp;Elements](#product-elements), set those values in local storage, open the "Tear Sheet" page in a new tab, and automatically open the Print dialogue which will close the tab once the user chooses to print, save, or cancel. Each time you go to a new product page or refresh the current product page `localstorage` will be cleared and ready to accept new values without unnecessarily using up the user's localstorage.
 <br><br>
 
-<i style="color:darkgray">
+<i>
 Note: As mentioned above, different themes may have the Product page code in other folders. You may need to dig around to find where the main HTML inside the Product pages is located. Experiment with implementing the `<input>` button found in this repository's `product.liquid` code. You can choose to use a different tag but this code should execute the same way if you make the necessary changes to your code to trigger the `printDiv()` function.
 </i>
 <br><br>
-<i style="color:gray">
+<i>
 Made with love by Grävy Design Co. // @gravyhtx
 </i>

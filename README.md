@@ -1,13 +1,15 @@
 # Shopify // Tear Sheet
 <br>
 Print a simple Tear Sheet on Product pages made in Shopify's Liquid templating language with localstorage.
+<br>
+<i>Some coding knowledge required.</i>
 <br><br>
 <h3>TABLE OF CONTENTS</h3>
 
 - [Description](#description)<br>
 - [Product&nbsp;Elements](#product-elements)<br>
 - [Installation](#installation)<br>
-
+<br>
 
 ## Description
 

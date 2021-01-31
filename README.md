@@ -93,4 +93,3 @@ _Note: As mentioned above, different themes may have the Product page code in ot
 <br><br>
 
 _Made with love by Grävy Design Co. // @gravyhtx_
-</i>

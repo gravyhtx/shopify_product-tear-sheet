@@ -8,69 +8,69 @@
 <!-- Don't forget to add some style, broh -->
 
 <div class="tear-btn" style="align-self: auto;" onclick="tearSheet()">
-    <input class="tear-sheet" id="tear-sheet" type="button" name="print" value="TEAR SHEET">
+  <input class="tear-sheet" id="tear-sheet" type="button" name="print" value="TEAR SHEET">
 </div>
 
 
 <!-- TEAR SHEET CODE -->
 
 <script>
-  var variantId = `{{ current_variant.id }}`;
-  var titleStore = 'title' + variantId;
-  var imgStore = 'image' + variantId;
-  var descStore = 'description' + variantId;
-  var priceStore = 'price' + variantId;
-  var skuStore = 'sku' + variantId;
-  var dimensStore = 'dimensions' + variantId;
-  var titlePrint = `{{ product.title }}`;
-  var pricePrint = `{{ current_variant.price | money }}`;
-  var imgGet = `{{ product.featured_image }}`;
-  var imgPrint = `{{ product | img_url: '720x720' }}`;
-  var skuPrint = `{{ current_variant.sku }}`;
-  var dimensPrint = `{{ current_variant.barcode }}`.toString();
-  var descPrint = `{{ product.description }}`;
+var variantId = `{{ current_variant.id }}`;
+var titleStore = 'title' + variantId;
+var imgStore = 'image' + variantId;
+var descStore = 'description' + variantId;
+var priceStore = 'price' + variantId;
+var skuStore = 'sku' + variantId;
+var barcodeStore = 'barcode' + variantId;
+var titlePrint = `{{ product.title }}`;
+var pricePrint = `{{ current_variant.price | money }}`;
+var imgGet = `{{ product.featured_image }}`;
+var imgPrint = `{{ product | img_url: '720x720' }}`;
+var skuPrint = `{{ current_variant.sku }}`;
+var barcodePrint = `{{ current_variant.barcode }}`.toString();
+var descPrint = `{{ product.description }}`;
 
-  localStorage.clear();
+localStorage.clear();
 
-  function currentProduct() {
+function currentProduct() {
 
-    //  TITLE
-    localStorage.setItem(titleStore, `{{ product.title }}`.toString());
+  //  TITLE
+  localStorage.setItem(titleStore, `{{ product.title }}`.toString());
 //             console.log('TITLE: ' + localStorage.getItem(titleStore));   
 
 
-    //  DESCRIPTION
-    localStorage.setItem(descStore, descPrint);
+  //  DESCRIPTION
+  localStorage.setItem(descStore, descPrint);
 //             console.log('DESC: ' + localStorage.getItem(descStore));
 
-    //  IMAGE
-    localStorage.setItem(imgStore, imgPrint);
+  //  IMAGE
+  localStorage.setItem(imgStore, imgPrint);
 //             console.log('IMAGE: ' + localStorage.getItem(imgStore));
 
-    //  PRICE
-    localStorage.setItem(priceStore, pricePrint);
+  //  PRICE
+  localStorage.setItem(priceStore, pricePrint);
 //             console.log('PRICE: ' + localStorage.getItem(priceStore));
 
-    //  SKU
-    localStorage.setItem(skuStore, skuPrint);
+  //  SKU
+  localStorage.setItem(skuStore, skuPrint);
 //             console.log(localStorage.getItem(skuStore));
 
 
-    //  DIMENSIONS
-    localStorage.setItem(dimensStore, dimensPrint);
-//             console.log(localStorage.getItem(dimensStore));
+  //  BARCODE
+  localStorage.setItem(barcodeStore, barcodePrint);
+//             console.log(localStorage.getItem(barcodeStore));
 
-  }
+}
+currentProduct();
+
+function tearSheet() {
+
   currentProduct();
 
-  function tearSheet() {
+  var variantId = `{{ current_variant.id }}`;
 
-    currentProduct();
-
-    var variantId = `{{ current_variant.id }}`;
-
-    ////////////////  OPEN TEAR SHEET PAGE ////////////////
-    window.open("/pages/tear-sheet?"+variantId);
-  };
+  ////////////////  OPEN TEAR SHEET PAGE ////////////////
+  window.open("/pages/tear-sheet?"+variantId);
+};
 
 </script>

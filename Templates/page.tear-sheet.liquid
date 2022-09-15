@@ -2,99 +2,134 @@
 <!-- USES "tear_sheet.liquid" TEMPLATE AS HTML LAYOUT FOR TEAR SHEET -->
 
 <style>
-  
+ 
   @page {
-      size: A4;
-      margin: 0;
-  }
-  
-  @media print {
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
+    size: auto;
+    margin: 0;
+    @page :footer {
+        display: none;
+    }
+ 
+    @page :header {
+        display: none;
     }
   }
-
-  /*** Up to you... the rest of the styling is your call ***/
-
+ 
+  @media print {
+    html, body {
+      width: 99%;
+      height: 99%;
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-bottom: 0 !important;
+      overflow: hidden;
+    }
+    .title {
+      padding: 0 20px 0 0;
+    }
+ 
+  }
+  
+  #preview-bar-iframe {
+    display: none !important;
+  }
+  
+  html {
+    padding-bottom: 0 !important;
+    height: 99%;
+    overflow: hidden;
+  }
+ 
   main {
     font-family: Montserrat, Calibri, sans-serif;
     text-align: center;
-
   }
-
+ 
   .logo-div {
     position: -webkit-sticky;
-  	position: sticky;
+              position: sticky;
   }
-  
+ 
   .logo {
+/*     filter: invert(1); */
     max-width: 200px;
     max-height: 200px;
     margin-top: 10px;
-	  display: -webkit-block;
-  	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
-  }
+    margin-bottom: 30px;
+    display: -webkit-block;
 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 
   .feat {
-    max-width: 350px;
-    max-height: 300px;
+    height: 300px;
+    max-width: 400px;
     position: static;
   }
-
+ 
   .title {
-    font-size: 18px;
-    margin-bottom: 8px;
-    font-weight: 200;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
     position: relative;
+    width:100%;
   }
-
+ 
   .price {
+    font-size: 22px;
+    font-weight: 200;
+    margin-bottom: 15px;
+    position: static;
+  }
+ 
+  .desc {
     font-size: 15px;
     font-weight: 200;
-    position: static;
-  }
-
-  .desc {
-    font-size: 13px;
-    font-weight: 200;
-    padding-left: -50px;
-    padding-right: -50px;
+    max-width: 75%;
+    margin: 0 auto;
+    padding-left: -75px;
+    padding-right: -75px;
+    padding-bottom: 30px;
     text-align:center;
-    background-position: bottom 45px;
     position: static;
+    width: 100%
   }
-
-	footer {
+ 
+  footer {
     height: 50px;
+    width: 100%;
     text-align: center;
+    font-family: 'Montserrat';
     font-weight: medium;
     font-size: 12px;
-    width: 100%;
+    padding-bottom: 10px;
   }
-
+ 
 </style>
 
 <section>
 
   <!-- Enter the pathway to the logo you'd like to use in "src" -->
   <!-- You can use a URL, call it from your assets, etc. Read Shopify Liquid documentation for more information -->
-  <img class="logo" id="logo" src="https://cdn.shopify.com/path/to/logo.png">
-  <br><br><br><br>
-
-  <img class="feat" id="sheet-image">
-  <div>
+  <img class="logo" id="Store Logo" id="logo" src="https://cdn.shopify.com/path/to/logo.png">
+  <br><br>
+ 
+  <div id="print-info">
+    <img class="feat" id="sheet-image">
     <br><br>
-    <div style="margin: 20px !important"></div>
-    <div class="title" id="sheet-title"></div>
-    <div style="font-size:12px; margin-bottom:2px;" id="sheet-sku"></div>
-    <div style="font-size:12px" id="sheet-dimens"></div>
-    <br>
-    <div class="price" id="sheet-price"></div>
+    <div style="margin: 20px"></div>
+    <div class="info" id="info">
+      <div class="title" id="sheet-title"></div>
+      <div class="price" id="sheet-price"></div>
+      <div class="desc" id="sheet-desc"></div>
+      <div class="spacer" style="margin: 10px"></div>
+      <div class="sku" style="font-size:18px; margin-bottom:5px" id="sheet-sku"></div>
+      <div class="dmens" style="font-size:18px" id="sheet-dimens"></div>
+    </div>
   </div>
 
   <footer class="foot" id="foot">420 Address St., Anywhere, USA &nbsp;. &nbsp;555.555.5555 &nbsp;. &nbsp;your@email.com</footer>
@@ -102,158 +137,179 @@
 </section>
 
 <script>
-
+ 
+  
 //////// GET ELEMENTS ////////
-
-    // PRODUCT ID
+ 
+  // PRODUCT ID
     console.log(prodIdUrl)
-    
+   
+ 
     // GET TITLE
-      const sheetTitleId = prodId + "title";
+      const sheetTitleId = "title" + prodId;
       const sheetTitle = localStorage.getItem(sheetTitleId)
       console.log(sheetTitle)
-
+ 
     // GET DESCRIPTION
-      const sheetDescId = prodId + "description";
+      const sheetDescId = "description" + prodId;
       const sheetDesc = localStorage.getItem(sheetDescId)
       console.log(sheetDesc)
-
+ 
     // GET IMAGE
-      const sheetImgId = prodId + "image";
+      const sheetImgId = "image" + prodId;
       const sheetImg = localStorage.getItem(sheetImgId)
       console.log(sheetImg)
-
+ 
     // GET PRICE
-      const sheetPriceId = prodId + "price";
+      const sheetPriceId = "price" + prodId;
       const sheetPrice = localStorage.getItem(sheetPriceId)
       console.log(sheetPrice)
-
+ 
     // GET SKU
-      const sheetSkuId = prodId + "sku";
+      const sheetSkuId = "sku" + prodId;
       const sheetSku = localStorage.getItem(sheetSkuId)
       console.log(sheetSku)
-
+ 
     // GET DIMENSIONS
-      const sheetDimensId = prodId + "dimensions";
+      const sheetDimensId = "dimensions" + prodId;
       const sheetDimens = localStorage.getItem(sheetDimensId)
       console.log(sheetDimens)
-
-
+ 
+ 
+ 
 //////// SET ELEMENTS ////////
-
+ 
     // SET TITLE
       document.getElementById('sheet-title').innerHTML = sheetTitle
-
+ 
     // SET DESCRIPTION
-      document.getElementById('sheet-desc').innerHTML = sheetDesc
-
+      if(sheetDesc) {
+      	document.getElementById('sheet-desc').innerHTML = sheetDesc
+      }
+ 
     // SET IMAGE
       document.getElementById('sheet-image').src = sheetImg
-
+ 
     // SET PRICE
-      document.getElementById('sheet-price').innerHTML = sheetPrice
-
+      if (sheetPrice === "$0.00") {
+        document.getElementById('sheet-price').innerHTML = "PLEASE INQUIRE FOR PRICING"
+      } else {
+        document.getElementById('sheet-price').innerHTML = sheetPrice}
+ 
     // SET SKU
       document.getElementById('sheet-sku').innerHTML = sheetSku
-
-    // SET DIMENSIONS
+ 
+   // SET DIMENSIONS
       document.getElementById('sheet-dimens').innerHTML = sheetDimens
+ 
+     
+      
+      
+//////// PRINT WINDOW ////////
+     
+   var printed = false
+ 
+   function printPage() {
+     window.print();
+     printed = true;
+   }
+ 
+  function printTearSheet() {
+    window.onload = printPage()
+    if (printed === true) {
+      setTimeout(function () {
+        window.close(); }, 3000);
+    }
+  } 
 
+// window.onload = printPage()
+//     window.onload = printTearSheet();
 
-//////// BROWSER STYLING FOR PRINT //////// 
-
-    // Opera 8.0+
-    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-
-    // Firefox 1.0+
-    var isFirefox = typeof InstallTrigger !== 'undefined';
-
-    // Safari 3.0+ "[object HTMLElementConstructor]" 
-    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
-
-    // Internet Explorer 6-11
-    var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-    // Edge 20+
-    var isEdge = !isIE && !!window.StyleMedia;
-
-    // Chrome 1 - 79
-    var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-
-    // Edge (based on chromium) detection
-    var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
-
-    // Blink engine detection
-    var isBlink = (isChrome || isOpera) && !!window.CSS;
-    
-
-    if (isSafari === true) {
+  docReady(printTearSheet())
+ 
+  function docReady(e) {
+      // see if DOM is already available
+//       if (document.readyState === "complete") {
+//           // call on next available tick
+//           setTimeout(e, 10000);
+//       }
+//     else {
+    setTimeout(function () {
+          document.addEventListener("DOMContentLoaded", e);
+    },500);
+//       }
+  } 
+  
+  
+  // Opera 8.0+
+  var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+ 
+  // Firefox 1.0+
+  var isFirefox = typeof InstallTrigger !== 'undefined';
+ 
+  // Safari 3.0+ "[object HTMLElementConstructor]"
+  var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+ 
+  // Internet Explorer 6-11
+  var isIE = /*@cc_on!@*/false || !!document.documentMode;
+ 
+  // Edge 20+
+  var isEdge = !isIE && !!window.StyleMedia;
+ 
+  // Chrome 1 - 79
+  var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+ 
+  // Edge (based on chromium) detection
+  var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
+ 
+  // Blink engine detection
+  var isBlink = (isChrome || isOpera) && !!window.CSS;
+ 
+ 
+  if (isSafari === true || isFirefox === true) {
     console.log('safari')
+    document.getElementById('print-container').style.maxHeight = '85%';
     document.getElementById('foot').style.bottom = '0';
     document.getElementById('foot').style.marginBottom = '-25px';
     document.getElementById('foot').style.position = 'fixed';
     document.getElementById('logo').style.marginBottom = '25px';
-    } else {
-      console.log('not safari')
-      document.getElementById('foot').style.bottom = '0';
-      document.getElementById('foot').style.position = 'fixed';
-      document.getElementById('foot').style.marginBottom = '10px';
-      document.getElementById('print-info').style.position = 'absolute';
-      document.getElementById('print-info').style.top = '50%';
-      document.getElementById('print-info').style.left = '50%';
-      document.getElementById('print-info').style.transform = 'translate(-50%,-50%)';
-      document.getElementById('feat').style.height = '1000px !important';
-      document.getElementById('feat').style.maxWidth = '100% !important';
-    }
+    document.getElementById('title').style.width = '90%';
+    document.style.padding = '10px';
+    document.getElementById('info').style.maxHeight = '85%';
+    document.getElementById('print-info').style.maxHeight = '0 auto';
+    document.getElementById('print-info').style.overflow = 'hidden';
+//     document.getElementById('feat').style.maxWidth = '700px';
+//     document.getElementById('feat').style.height = '200% !important';
+  } else {
+    console.log('not safari')
+    document.getElementById('print-container').style.maxHeight = '85%';
+    document.getElementById('foot').style.bottom = '0';
+    document.getElementById('foot').style.position = 'fixed';
+    document.getElementById('foot').style.marginBottom = '10px';
+    document.getElementById('print-info').style.position = 'absolute';
+    document.getElementById('print-info').style.margin = '0 auto';
+    document.getElementById('print-info').style.width = '90%';
+    document.getElementById('print-info').style.top = '50%';
+    document.getElementById('print-info').style.left = '50%';
+    document.getElementById('print-info').style.transform = 'translate(-50%,-50%)';
+    document.getElementById('print-info').style.overflow = 'hidden';
+    document.getElementById('spacer').stylr.margin = '0px';
+//     document.getElementById('feat').style.height = '1000px !important';
+//     document.getElementById('feat').style.maxWidth = '100% !important';
+  }
+ 
   
-  
-  // BOOLEAN VARIABLES
-    isFirefox
-    isChrome
-    isSafari
-    isOpera
-    isIE
-    isEdge
-    isEdgeChromium
-    isBlink
-
-
-//////////////////////////////  
-//////// PRINT WINDOW ////////
-//////////////////////////////
-
-    var printed = false
-
-    function printPage() {
-        window.print();
-        printed = true;
-      }
-
-    function printTearSheet() {
-      window.onload = printPage()
-      if (printed === true) {
-        setTimeout(function () {
-        window.close(); }, 1000);
-      }
-    }  
-
-  //// THIS NEXT PART MIGHT BE A BIT OVERLY COMPLICATED...
-  //// COMMENT OUT LINES 241-251 AND UN-COMMENT @ LINE 254 FOR "SIMPLER OPTION"
-    docReady(printTearSheet())
-
-    function docReady(e) {
-      // see if DOM is already available
-      if (document.readyState === "complete" || document.readyState === "interactive") {
-          // call on next available tick
-          setTimeout(e, 1);
-      } else {
-          document.addEventListener("DOMContentLoaded", e);
-      }
-    }
-
-  //// SIMPLER OPTION
-    // window.onload = printTearSheet();
-
+// BOOLEAN VARIABLES
+  isFirefox
+  isChrome
+  isSafari
+  isOpera
+  isIE
+  isEdge
+  isEdgeChromium
+  isBlink
+ 
+ 
 </script>
 
 <!-- Genius coding by Grävy Design Co. // @gravyhtx -->

@@ -93,7 +93,7 @@ Now you should have a clickable button on every product page. When you click on 
 <br><br>
 
 
-_Note: As mentioned above, different themes may have the Product page code in other folders. You may need to dig around to find where the main HTML inside the Product pages is located. Experiment with implementing the `<input>` button found in this repository's `product.liquid` code. You can choose to use a different tag but this code should execute the same way if you make the necessary changes to your code to trigger the `printDiv()` function._
+_Note: As mentioned above, different themes may have the Product page code in other folders. You may need to dig around to find where the main HTML inside the Product pages is located. Experiment with implementing the `<input>` button found in this repository's `product.liquid` code. You can choose to use a different tag but this code should execute the same way if you make the necessary changes to your code to trigger the `tearSheet()` function._
 <br><br>
 
 _Made with love by Grävy Design Co. // @gravyhtx_

@@ -54,8 +54,8 @@ This is a list of all the elements grabbed from the product page used in this pr
 <h3>Shopify Liquid Varibles</h3>
 
 __Title:__ `{{ product.title }}`<br>
-__Image:__ `{https://cdn.shopify.com/path/to/{{product.featured_image}}`<br>
-__Description:__ `document.getElementById('descPrint').innerHTML` _[get all HTML code inside description]_<br>
+__Image:__ `{{ product | img_url: '720x720' }}`<br>
+__Description:__ `{{ product.description }}`<br>
 __SKU:__ `{{ current_variant.sku }}`<br>
 __Barcode:__ `{{ current_variant.barcode }}`<br>
 __Price:__ `{{ current_variant.price | money }}`<br><br>
@@ -87,9 +87,7 @@ You have now created a blank page ready to accept values from local storage base
 
 Go back to the Code Editor and you will find a file usually called something like `product-template.liquid` or `product.liquid` in your "Snippets" folder. You may have to look around but it's going to be wherever the main product content code is Here you will need to add two things to this file. You will need a clickable button and some script to save the [Product&nbsp;Elements](#product-elements) that will populate your Tear Sheet.
 
-Add all of the script from [Snippets/product.liquid](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Snippets/product.liquid) to the end of the `product.liquid` file in the "Snippets" folder of your Code Editor. Be sure to edit the path to your logo on line `37` (after the 'imgPrint' variable) before you're ready to test this out.
-
-Last, use the HTML found in [`Product_Page/tear-sheet-button.html`](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Product_Page/tear-sheet-button.html) and add the code wherever you want to have the clickable "TEAR SHEET" button. I had to add it in a Custom HTML module and style it to fit on my project.
+Add all of the script from [Product_Page/tear-sheet.liquid](https://github.com/gravyhtx/shopify_product-tear-sheet/tree/main/Product_Page) to your `product.liquid` (or `product-templates.liquid` or whatever the Product Template file is called) which may be in the "Section" or "Snippets" folder of your Code Editor. You want to put it wherever the button will go in the project. Be sure to edit the path to your logo (after the 'imgPrint' variable) before you're ready to test this out. You may need to separate the HTML from JS but as long as the code ends up on the same page you're gravy.
 
 Now you should have a clickable button on every product page. When you click on that button the script will grab all the [Product&nbsp;Elements](#product-elements), set those values in local storage, open the "Tear Sheet" page in a new tab, and automatically open the Print dialogue which will close the tab once the user chooses to print, save, or cancel. Each time you go to a new product page or refresh the current product page `localstorage` will be cleared and ready to accept new values without unnecessarily using up the user's localstorage.
 <br><br>

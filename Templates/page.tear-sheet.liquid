@@ -100,6 +100,8 @@
   }
  
   footer {
+    position: fixed;
+    bottom: 0;
     height: 50px;
     width: 100%;
     text-align: center;
@@ -115,7 +117,7 @@
 
   <!-- Enter the pathway to the logo you'd like to use in "src" -->
   <!-- You can use a URL, call it from your assets, etc. Read Shopify Liquid documentation for more information -->
-  <img class="logo" id="Store Logo" id="logo" src="https://cdn.shopify.com/path/to/logo.png">
+  <img class="logo" alt="Store Logo" id="logo" src="https://cdn.shopify.com/path/to/logo.png">
   <br><br>
  
   <div id="print-info">
@@ -128,7 +130,7 @@
       <div class="desc" id="sheet-desc"></div>
       <div class="spacer" style="margin: 10px"></div>
       <div class="sku" style="font-size:18px; margin-bottom:5px" id="sheet-sku"></div>
-      <div class="dmens" style="font-size:18px" id="sheet-dimens"></div>
+      <div class="dmens" style="font-size:18px" id="sheet-barcode"></div>
     </div>
   </div>
 
@@ -170,10 +172,10 @@
       const sheetSku = localStorage.getItem(sheetSkuId)
       console.log(sheetSku)
  
-    // GET DIMENSIONS
-      const sheetDimensId = "dimensions" + prodId;
-      const sheetDimens = localStorage.getItem(sheetDimensId)
-      console.log(sheetDimens)
+    // GET BARCODE
+      const sheetbarcodeId = "barcode" + prodId;
+      const sheetbarcode = localStorage.getItem(sheetbarcodeId)
+      console.log(sheetbarcode)
  
  
  
@@ -199,8 +201,8 @@
     // SET SKU
       document.getElementById('sheet-sku').innerHTML = sheetSku
  
-   // SET DIMENSIONS
-      document.getElementById('sheet-dimens').innerHTML = sheetDimens
+   // SET BARCODE
+      document.getElementById('sheet-barcode').innerHTML = sheetbarcode
  
      
       
@@ -228,16 +230,9 @@
   docReady(printTearSheet())
  
   function docReady(e) {
-      // see if DOM is already available
-//       if (document.readyState === "complete") {
-//           // call on next available tick
-//           setTimeout(e, 10000);
-//       }
-//     else {
     setTimeout(function () {
           document.addEventListener("DOMContentLoaded", e);
     },500);
-//       }
   } 
   
   
@@ -269,22 +264,16 @@
   if (isSafari === true || isFirefox === true) {
     console.log('safari')
     document.getElementById('print-container').style.maxHeight = '85%';
-    document.getElementById('foot').style.bottom = '0';
     document.getElementById('foot').style.marginBottom = '-25px';
-    document.getElementById('foot').style.position = 'fixed';
     document.getElementById('logo').style.marginBottom = '25px';
     document.getElementById('title').style.width = '90%';
-    document.style.padding = '10px';
     document.getElementById('info').style.maxHeight = '85%';
     document.getElementById('print-info').style.maxHeight = '0 auto';
     document.getElementById('print-info').style.overflow = 'hidden';
-//     document.getElementById('feat').style.maxWidth = '700px';
-//     document.getElementById('feat').style.height = '200% !important';
+    document.style.padding = '10px';
   } else {
     console.log('not safari')
     document.getElementById('print-container').style.maxHeight = '85%';
-    document.getElementById('foot').style.bottom = '0';
-    document.getElementById('foot').style.position = 'fixed';
     document.getElementById('foot').style.marginBottom = '10px';
     document.getElementById('print-info').style.position = 'absolute';
     document.getElementById('print-info').style.margin = '0 auto';
@@ -293,9 +282,7 @@
     document.getElementById('print-info').style.left = '50%';
     document.getElementById('print-info').style.transform = 'translate(-50%,-50%)';
     document.getElementById('print-info').style.overflow = 'hidden';
-    document.getElementById('spacer').stylr.margin = '0px';
-//     document.getElementById('feat').style.height = '1000px !important';
-//     document.getElementById('feat').style.maxWidth = '100% !important';
+    document.getElementById('spacer').style.margin = '0px';
   }
  
   

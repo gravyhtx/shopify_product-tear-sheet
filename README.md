@@ -24,12 +24,17 @@ Once data is set in local storage a new page is opened in a separate tab using a
 
 __TIPS__
 
-* If you want to add "Dimensions" of the product you can put that info in the __"Barcode"__ input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called. It doesn't necessarily need to be the "Barcode"... same goes for __"SKU"__, but for the purposes of this demo the "SKU" is used as it was intended and the "Barcode" is used to display the dimensions.
+* If you want to add "Dimensions" (or any other parameter) you can put that info in the __"Barcode"__ input on the product editor page. This code grabs `{{ current_variant.barcode }}` but you can pretty much enter whatever text you want and call it displayed as whatever information you want it to be called. It doesn't necessarily need to be the "Barcode"... same goes for __"SKU"__, but for the purposes of this demo the "SKU" is used as it was intended and the "Barcode" is used to display the dimensions.
 
-* When you print the Tear Sheet in edit mode, you will likely have a bar at the bottom that will get printed. To close this you will need to hide that bar. Either by enter
-    - Comment out the "PRINT WINDOW" code on `page.tear-sheet.liquid` from lines [224-254](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid).
+* When you print the Tear Sheet in edit mode, you will likely have a bar at the bottom that will get printed. To close this you will need to hide that bar. Either by closing it manually or adding styles to the theme.css (or .scss) which will be:
+<p>.shopify-payment-button__button--hidden {
+  display: none !important;
+}</p>
+
+Manual Process:
+    - Comment out the "PRINT WINDOW" code on `page.tear-sheet.liquid` from lines [230-236](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid).
     - Open the Tear Sheet and choose to close preview on the bottom bar.
-    - Close this tab and remove the comments previously set at [224-254](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid) on `page.tear-sheet.liquid`
+    - Close this tab and remove the comments previously set at [230-236](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid) on `page.tear-sheet.liquid`
     - Reopen Tear Sheet and it should now print without the bottom bar.
         <p><i>** If this doesn't work you may need to figure this one out yourself and let me know what you did so I can <a href="https://github.com/gravyhtx/shopify_product-tear-sheet/issues" target="_blank">update this README</a>. **</i></p>
         <p><i>This same concept can be applied to any HTML code with Vanilla JavaScript. You'll grab the elements to insert into the tear sheet based on your own variables or grabbing elements from the DOM in place of the Liquid syntax.</i></p>

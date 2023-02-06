@@ -16,35 +16,26 @@
     size: auto;
     margin: 0;
     @page :footer {
-        display: none;
+        display: none
     }
- 
+  
     @page :header {
-        display: none;
+        display: none
     }
   }
- 
+  
   @media print {
     html, body {
       width: 99%;
       height: 99%;
       margin: 0;
-      align-items: center;
-      justify-content: center;
+      display: block;
       text-align: center;
-      padding-bottom: 0 !important;
       overflow: hidden;
     }
     .title {
       padding: 0 20px 0 0;
     }
- 
-  }
-  
-  html {
-    padding-bottom: 0 !important;
-    height: 99%;
-    overflow: hidden;
   }
  
   main {

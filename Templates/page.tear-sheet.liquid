@@ -2,7 +2,16 @@
 <!-- USES "tear_sheet.liquid" TEMPLATE AS HTML LAYOUT FOR TEAR SHEET -->
 
 <style>
+
+  /* ALWAYS REMOVE ADMIN + PREVIEW BAR */
+  #admin-bar-iframe {
+    display: none !important;
+  }
+  #preview-bar-iframe {
+    display: none !important;
+  }
  
+  /* PAGE & PRINT SETUP */
   @page {
     size: auto;
     margin: 0;
@@ -30,10 +39,6 @@
       padding: 0 20px 0 0;
     }
  
-  }
-  
-  #preview-bar-iframe {
-    display: none !important;
   }
   
   html {
@@ -110,6 +115,24 @@
     font-size: 12px;
     padding-bottom: 10px;
   }
+  
+  
+  .logo-break {
+    height: 100px;
+    height: 1vh;
+  }
+  .feat-break {
+    height: 50px;
+  }
+  
+  #print-info {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    flex-direction: column;
+  }
  
 </style>
 
@@ -118,12 +141,16 @@
   <!-- Enter the pathway to the logo you'd like to use in "src" -->
   <!-- You can use a URL, call it from your assets, etc. Read Shopify Liquid documentation for more information -->
   <img class="logo" alt="Store Logo" id="logo" src="https://cdn.shopify.com/path/to/logo.png">
-  <br><br>
- 
+  
+   <!-- Add space between logo and printed info -->
+   <div class="logo-break" id="logo-break"></div>
+   
   <div id="print-info">
     <img class="feat" id="sheet-image">
-    <br><br>
-    <div style="margin: 20px"></div>
+    
+     <!-- Add space between image and description info -->
+     <div class="feat-break" id="feat-break"></div>
+     
     <div class="info" id="info">
       <div class="title" id="sheet-title"></div>
       <div class="price" id="sheet-price"></div>
@@ -194,7 +221,9 @@
  
     // SET PRICE
       if (sheetPrice === "$0.00") {
-        document.getElementById('sheet-price').innerHTML = "PLEASE INQUIRE FOR PRICING"
+        // You can comment this out and add anything you want, but this is for items that appear "FREE"
+        // when they might actually just not be priced yet.
+        document.getElementById('sheet-price').innerHTML = "PLEASE INQUIRE FOR PRICING" 
       } else {
         document.getElementById('sheet-price').innerHTML = sheetPrice}
  
@@ -208,34 +237,46 @@
       
       
 //////// PRINT WINDOW ////////
-     
-   var printed = false
- 
+      
+   var printed = false;
+
    function printPage() {
      window.print();
-     printed = true;
+     printed = true; // Set `printed` to 'true'
    }
- 
+
   function printTearSheet() {
     window.onload = printPage()
-    if (printed === true) {
+    if (printed === true) { // Checks that printPage() has printed the page...
       setTimeout(function () {
-        window.close(); }, 3000);
+        // Wait 500ms to close
+        // Fires after Print Preview is exited
+        window.close(); }, 500);
     }
-  } 
-
-// window.onload = printPage()
-//     window.onload = printTearSheet();
-
-  docReady(printTearSheet())
- 
-  function docReady(e) {
-    setTimeout(function () {
-          document.addEventListener("DOMContentLoaded", e);
-    },500);
-  } 
+  }
+  
+  ////////////////////////////
+  // PRINT TEAR SHEET CODE ///
+  ////////////////////////////
+  
+  // Wait 500ms then PRINT when Document is ready...
+    setTimeout(function () { docReady(printTearSheet()) },500) 
   
   
+  // Wait for ALL resources to load..
+    function docReady(e) {
+      document.addEventListener("load", e); 
+    }  
+    
+/* 
+
+  //////////////////////////
+  // BROWSER CONDITIONALS //
+  //////////////////////////
+
+    Modify as needed...
+
+*/
   // Opera 8.0+
   var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
  
@@ -261,30 +302,25 @@
   var isBlink = (isChrome || isOpera) && !!window.CSS;
  
  
-  if (isSafari === true || isFirefox === true) {
+  if (isSafari === true) {
     console.log('safari')
-    document.getElementById('print-container').style.maxHeight = '85%';
+    document.getElementById('foot').style.bottom = '0';
     document.getElementById('foot').style.marginBottom = '-25px';
-    document.getElementById('logo').style.marginBottom = '25px';
-    document.getElementById('title').style.width = '90%';
-    document.getElementById('info').style.maxHeight = '85%';
-    document.getElementById('print-info').style.maxHeight = '0 auto';
-    document.getElementById('print-info').style.overflow = 'hidden';
+    document.getElementById('foot').style.position = 'fixed';
+    document.getElementById('logo').style.marginBottom = '50px';
+//  document.getElementById('sheet-title').style.width = '90%';
+    document.getElementById('image').style.maxHeight = '350px';
+    document.getElementById('sheet-desc').style.maxWidth = '70%';
+    document.getElementById('sheet-desc').style.fontSize = '12px';
     document.style.padding = '10px';
+//  document.getElementById('feat').style.maxWidth = '700px';
+//  document.getElementById('feat').style.height = '200% !important';
   } else {
     console.log('not safari')
-    document.getElementById('print-container').style.maxHeight = '85%';
+    document.getElementById('foot').style.bottom = '0';
+    document.getElementById('foot').style.position = 'fixed';
     document.getElementById('foot').style.marginBottom = '10px';
-    document.getElementById('print-info').style.position = 'absolute';
-    document.getElementById('print-info').style.margin = '0 auto';
-    document.getElementById('print-info').style.width = '90%';
-    document.getElementById('print-info').style.top = '50%';
-    document.getElementById('print-info').style.left = '50%';
-    document.getElementById('print-info').style.transform = 'translate(-50%,-50%)';
-    document.getElementById('print-info').style.overflow = 'hidden';
-    document.getElementById('spacer').style.margin = '0px';
   }
- 
   
 // BOOLEAN VARIABLES
   isFirefox
@@ -296,7 +332,5 @@
   isEdgeChromium
   isBlink
  
- 
+   // Genius coding by Grävy Design Co. // @gravyhtx
 </script>
-
-<!-- Genius coding by Grävy Design Co. // @gravyhtx -->

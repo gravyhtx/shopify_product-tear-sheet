@@ -3,18 +3,19 @@
 
 <style>
 
-  /* ALWAYS REMOVE ADMIN + PREVIEW BAR */
+/* ALWAYS REMOVE ADMIN/PREVIEW BAR WHILE LOGGED IN */
   #admin-bar-iframe {
     display: none !important;
   }
   #preview-bar-iframe {
     display: none !important;
   }
- 
-  /* PAGE & PRINT SETUP */
+
+/* SETUP PAGE FOR PRINT */
   @page {
     size: auto;
     margin: 0 auto;
+    overflow: hidden;
     @page :footer {
         display: none
     }
@@ -25,132 +26,189 @@
   }
   
   @media print {
+    html {
+      max-height: 99%;
+      overflow: hidden;
+    }
     html, body {
       width: 99%;
       height: 99%;
       margin: 0 auto;
       display: block;
       text-align: center;
-      overflow: hidden; // Ensure page never overflows to the next page
+      overflow: hidden;
+    }
+    #print-info {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      overflow: hidden;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
+      flex-direction: column;
     }
     .title {
       padding: 0 20px 0 0;
     }
+
   }
- 
+  
+/* SETUP DOCUMENT ELEMENTS */
+  html {
+    height: 11in;
+    width: 8.5in;
+    margin: 0 auto;
+  }
+  
   main {
     /* Change to whatever font you want to use. Google Fonts imported in 'Layout' */
     font-family: Montserrat, Calibri, sans-serif;
     text-align: center;
+    padding: 20px 10px;
+    max-height: 99vh;
+    margin: auto;
   }
- 
+  
   .logo-div {
     position: -webkit-sticky;
-              position: sticky;
+  	position: sticky;
   }
- 
+  
   .logo {
-/*     filter: invert(1); */
-    max-width: 200px;
+    /* USE CODE BELOW IF LOGO IS AN SVG AND IT'S WHITE OR SUPER LIGHT TO INVERT COLORS */
+    /* filter: invert(1) saturation(0) !important; */
+    max-width: 150px;
     max-height: 200px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    display: -webkit-block;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
+	display: -webkit-block;
+  	display: block;
   }
- 
+
   .feat {
     height: 300px;
-    max-width: 400px;
+    max-width: 550px;
     position: static;
+    margin: 0 auto;
   }
- 
+
   .title {
     font-size: 20px;
-    margin-bottom: 10px;
-    font-weight: 600;
+    margin-bottom: 35px;
+    font-weight: 200;
     position: relative;
     width:100%;
   }
- 
+
   .price {
-    font-size: 22px;
-    font-weight: 200;
-    margin-bottom: 15px;
-    position: static;
-  }
- 
-  .desc {
     font-size: 15px;
     font-weight: 200;
-    max-width: 75%;
-    margin: 0 auto;
-    padding-left: -75px;
-    padding-right: -75px;
-    padding-bottom: 30px;
-    text-align:center;
     position: static;
-    width: 100%
   }
- 
+
+  .desc {
+    margin: 0 auto;
+    font-size: 13px;
+    font-weight: 200;
+    text-align: center;
+    position: static;
+    width: 70vw;
+    max-width: 70%;
+    max-height: 50%;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+  }
+
+  .sku, .dimens {
+    font-size: 14px;
+  }
+
+  .sku {
+    margin-bottom: 5px;
+  }
+
   footer {
-    position: fixed;
-    bottom: 0;
-    height: 50px;
     width: 100%;
     text-align: center;
-    font-family: 'Montserrat';
     font-weight: medium;
     font-size: 12px;
-    padding-bottom: 10px;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    margin: 0 auto;
   }
-  
-  
+
   .logo-break {
-    height: 100px;
-    height: 1vh;
+    height: 60;
   }
   .feat-break {
-    height: 50px;
+    height: 50px !important;
   }
-  
-  #print-info {
-    margin: 0 auto;
+
+  #header: {
+    height: 14%;
+    height: 14vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+  }
+  
+  #print-info {
+    margin: auto;
+    display: grid;
+    columns: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    height: 80vh;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
     flex-direction: column;
   }
- 
+
+  #foot {
+    height: 5%;
+    height: 5vh;
+  }
+
 </style>
 
 <section>
 
-  <!-- Enter the pathway to the logo you'd like to use in "src" -->
-  <!-- You can use a URL, call it from your assets, etc. Read Shopify Liquid documentation for more information -->
-  <img class="logo" alt="Store Logo" id="logo" src="https://cdn.shopify.com/path/to/logo.png">
+  <div id="header">
+    <!-- Enter the pathway to the logo you'd like to use in "src" -->
+    <!-- You can use a URL, call it from your assets, etc. Read Shopify Liquid documentation for more information -->
+    <img class="logo" alt="Store Logo" id="logo" src="https://cdn.shopify.com/s/files/1/0439/2868/2653/files/gravy_logo.png?v=1675744129">
   
-   <!-- Add space between logo and printed info -->
-   <div class="logo-break" id="logo-break"></div>
+    <!-- Add space between logo and printed info -->
+    <div class="logo-break" id="logo-break"></div>
+  </div>
    
+  <!-- Product information goes here... -->
   <div id="print-info">
-    <img class="feat" id="sheet-image">
-    
-     <!-- Add space between image and description info -->
-     <div class="feat-break" id="feat-break"></div>
-     
-    <div class="info" id="info">
+    <!-- PRODUCT IMAGE -->
+      <img class="feat" id="sheet-image">
+      <!-- SPACING -->
+      <div class="feat-break" id="feat-break"></div>
+      
+    <!-- PRODUCT TITLE -->
       <div class="title" id="sheet-title"></div>
+      
+    <!-- PRODUCT SKU -->
+      <div class="sku" id="sheet-sku"></div>
+      
+    <!-- PRODUCT BARCODE -->
+      <div class="barcode" id="sheet-barcode"></div>
+      
+    <!-- PRODUCT PRICE -->
       <div class="price" id="sheet-price"></div>
+      
+    <!-- PRODUCT DESCRIPTION -->
       <div class="desc" id="sheet-desc"></div>
-      <div class="spacer" style="margin: 10px"></div>
-      <div class="sku" style="font-size:18px; margin-bottom:5px" id="sheet-sku"></div>
-      <div class="dmens" style="font-size:18px" id="sheet-barcode"></div>
-    </div>
   </div>
 
   <footer class="foot" id="foot">420 Address St., Anywhere, USA &nbsp;. &nbsp;555.555.5555 &nbsp;. &nbsp;your@email.com</footer>
@@ -230,11 +288,11 @@
       
 //////// PRINT WINDOW ////////
       
-   var printed = false;
+   var printed = false
 
    function printPage() {
      window.print();
-     printed = true; // Set `printed` to 'true'
+     printed = true;  // Set `printed` to 'true'
    }
 
   function printTearSheet() {
@@ -246,7 +304,7 @@
         window.close(); }, 500);
     }
   }
-  
+
   ////////////////////////////
   // PRINT TEAR SHEET CODE ///
   ////////////////////////////
@@ -259,7 +317,6 @@
     function docReady(e) {
       document.addEventListener("load", e); 
     }  
-    
 /* 
 
   //////////////////////////
@@ -269,6 +326,7 @@
     Modify as needed...
 
 */
+
   // Opera 8.0+
   var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
  
@@ -293,25 +351,18 @@
   // Blink engine detection
   var isBlink = (isChrome || isOpera) && !!window.CSS;
  
- 
   if (isSafari === true) {
     console.log('safari')
-    document.getElementById('foot').style.bottom = '0';
-    document.getElementById('foot').style.marginBottom = '-25px';
-    document.getElementById('foot').style.position = 'fixed';
-    document.getElementById('logo').style.marginBottom = '50px';
-//  document.getElementById('sheet-title').style.width = '90%';
-    document.getElementById('image').style.maxHeight = '350px';
+    document.getElementById('logo').style.paddingTop = '0px';
+    document.getElementById('logo').style.paddingBottom = '30px';
+    document.getElementById('print-info').style.paddingTop = '30px';
+    document.getElementById('sheet-image').style.maxHeight = '350px';
     document.getElementById('sheet-desc').style.maxWidth = '70%';
     document.getElementById('sheet-desc').style.fontSize = '12px';
-    document.style.padding = '10px';
-//  document.getElementById('feat').style.maxWidth = '700px';
-//  document.getElementById('feat').style.height = '200% !important';
+    document.style.padding = '0px';
   } else {
     console.log('not safari')
-    document.getElementById('foot').style.bottom = '0';
-    document.getElementById('foot').style.position = 'fixed';
-    document.getElementById('foot').style.marginBottom = '10px';
+    document.getElementById('foot').style.paddingBottom = '10px';
   }
   
 // BOOLEAN VARIABLES

@@ -7,76 +7,76 @@
 <!-- Add this code wherever you want your button to trigger the TEAR SHEET code -->
 <!-- Don't forget to add some style, broh -->
 
-<div class="tear-btn" style="align-self: auto;" onclick="tearSheet()">
-  <input class="tear-sheet" id="tear-sheet" type="button" name="print" value="TEAR SHEET">
+<div class="tear-btn" id="tear-btn" style="align-self: auto;" onclick="tearSheet()">
+  <input class="tear-sheet" id="tear-sheet" type="button" name="print" value="TEAR SHEET" aria-label="Product Tear Sheet">
 </div>
 
 
 <!-- TEAR SHEET CODE -->
 
 <script>
-var variantId = `{{ current_variant.id }}`;
-var titleStore = 'title' + variantId;
-var imgStore = 'image' + variantId;
-var descStore = 'description' + variantId;
-var priceStore = 'price' + variantId;
-var skuStore = 'sku' + variantId;
-var barcodeStore = 'barcode' + variantId;
-var titlePrint = `{{ product.title }}`;
-var pricePrint = `{{ current_variant.price | money }}`;
-var imgGet = `{{ product.featured_image }}`;
-var imgPrint = `{{ product | img_url: '720x720' }}`;
-var skuPrint = `{{ current_variant.sku }}`;
-var barcodePrint = `{{ current_variant.barcode }}`.toString();
-var descPrint = `{{ product.description }}`;
-
-
-// CLEAR OLD PRODUCT INFO IN LOCAL STORAGE
-localStorage.clear();
-
-// SET CURRENT PRODUCT INFO INTO LOCAL STORAGE
-function currentProduct() {
-
-//  TITLE
-  localStorage.setItem(titleStore, `{{ product.title }}`.toString());
-  //  console.log('TITLE: ' + localStorage.getItem(titleStore));   
-
-
-//  DESCRIPTION
-  localStorage.setItem(descStore, descPrint);
-  //  console.log('DESC: ' + localStorage.getItem(descStore));
-
-//  IMAGE
-  localStorage.setItem(imgStore, imgPrint);
-  //  console.log('IMAGE: ' + localStorage.getItem(imgStore));
-
-  //  PRICE
-  localStorage.setItem(priceStore, pricePrint);
-  //  console.log('PRICE: ' + localStorage.getItem(priceStore));
-
-//  SKU
-  localStorage.setItem(skuStore, skuPrint);
-  //  console.log(localStorage.getItem(skuStore));
-
-
-//  BARCODE
-  localStorage.setItem(barcodeStore, barcodePrint);
-  //  console.log(localStorage.getItem(barcodeStore));
-
-}
-
-// CALL FUNCTION TO SET PRODUCTS INTO LOCAL STORAGE
-// NOTE:  THIS IS OPTIONAL... 
-currentProduct(); // Can be commented out and left to be called at the 'tearSheet' function below
-
-function tearSheet() {
-
-  currentProduct();
-
   var variantId = `{{ current_variant.id }}`;
+  var titleStore = 'title' + variantId;
+  var imgStore = 'image' + variantId;
+  var descStore = 'description' + variantId;
+  var priceStore = 'price' + variantId;
+  var skuStore = 'sku' + variantId;
+  var barcodeStore = 'barcode' + variantId;
+  var titlePrint = `{{ product.title }}`;
+  var pricePrint = `{{ current_variant.price | money }}`;
+  var imgGet = `{{ product.featured_image }}`;
+  var imgPrint = `{{ product | img_url: '720x720' }}`;
+  var skuPrint = `{{ current_variant.sku }}`;
+  var barcodePrint = `{{ current_variant.barcode }}`.toString();
+  var descPrint = `{{ product.description }}`;
 
-  ////////////////  OPEN TEAR SHEET PAGE ////////////////
-  window.open("/pages/tear-sheet?"+variantId);
-};
+
+  // CLEAR OLD PRODUCT INFO IN LOCAL STORAGE
+  localStorage.clear();
+
+  // SET CURRENT PRODUCT INFO INTO LOCAL STORAGE
+  function currentProduct() {
+
+  //  TITLE
+    localStorage.setItem(titleStore, `{{ product.title }}`.toString());
+    //  console.log('TITLE: ' + localStorage.getItem(titleStore));   
+
+
+  //  DESCRIPTION
+    localStorage.setItem(descStore, descPrint);
+    //  console.log('DESC: ' + localStorage.getItem(descStore));
+
+  //  IMAGE
+    localStorage.setItem(imgStore, imgPrint);
+    //  console.log('IMAGE: ' + localStorage.getItem(imgStore));
+
+    //  PRICE
+    localStorage.setItem(priceStore, pricePrint);
+    //  console.log('PRICE: ' + localStorage.getItem(priceStore));
+
+  //  SKU
+    localStorage.setItem(skuStore, skuPrint);
+    //  console.log(localStorage.getItem(skuStore));
+
+
+  //  BARCODE
+    localStorage.setItem(barcodeStore, barcodePrint);
+    //  console.log(localStorage.getItem(barcodeStore));
+
+  }
+
+  // CALL FUNCTION TO SET PRODUCTS INTO LOCAL STORAGE ON PAGE LOAD
+  // NOTE:  This is optional... 
+    currentProduct(); // ...can be commented out and left to be called at the 'tearSheet' function below
+
+  function tearSheet() {
+
+    currentProduct();
+
+    var variantId = `{{ current_variant.id }}`;
+
+    ////////////////  OPEN TEAR SHEET PAGE ////////////////
+    window.open("/pages/tear-sheet?"+variantId);
+  };
 
 </script>

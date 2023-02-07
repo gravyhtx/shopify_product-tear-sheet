@@ -30,38 +30,44 @@ var skuPrint = `{{ current_variant.sku }}`;
 var barcodePrint = `{{ current_variant.barcode }}`.toString();
 var descPrint = `{{ product.description }}`;
 
+
+// CLEAR OLD PRODUCT INFO IN LOCAL STORAGE
 localStorage.clear();
 
+// SET CURRENT PRODUCT INFO INTO LOCAL STORAGE
 function currentProduct() {
 
-  //  TITLE
+//  TITLE
   localStorage.setItem(titleStore, `{{ product.title }}`.toString());
-//             console.log('TITLE: ' + localStorage.getItem(titleStore));   
+  //  console.log('TITLE: ' + localStorage.getItem(titleStore));   
 
 
-  //  DESCRIPTION
+//  DESCRIPTION
   localStorage.setItem(descStore, descPrint);
-//             console.log('DESC: ' + localStorage.getItem(descStore));
+  //  console.log('DESC: ' + localStorage.getItem(descStore));
 
-  //  IMAGE
+//  IMAGE
   localStorage.setItem(imgStore, imgPrint);
-//             console.log('IMAGE: ' + localStorage.getItem(imgStore));
+  //  console.log('IMAGE: ' + localStorage.getItem(imgStore));
 
   //  PRICE
   localStorage.setItem(priceStore, pricePrint);
-//             console.log('PRICE: ' + localStorage.getItem(priceStore));
+  //  console.log('PRICE: ' + localStorage.getItem(priceStore));
 
-  //  SKU
+//  SKU
   localStorage.setItem(skuStore, skuPrint);
-//             console.log(localStorage.getItem(skuStore));
+  //  console.log(localStorage.getItem(skuStore));
 
 
-  //  BARCODE
+//  BARCODE
   localStorage.setItem(barcodeStore, barcodePrint);
-//             console.log(localStorage.getItem(barcodeStore));
+  //  console.log(localStorage.getItem(barcodeStore));
 
 }
-currentProduct();
+
+// CALL FUNCTION TO SET PRODUCTS INTO LOCAL STORAGE
+// NOTE:  THIS IS OPTIONAL... 
+currentProduct(); // Can be commented out and left to be called at the 'tearSheet' function below
 
 function tearSheet() {
 

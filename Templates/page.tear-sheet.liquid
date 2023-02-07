@@ -305,27 +305,30 @@
     }
   }
 
+
   ////////////////////////////
   // PRINT TEAR SHEET CODE ///
   ////////////////////////////
   
-  // Wait 500ms then PRINT when Document is ready...
-    setTimeout(function () { docReady(printTearSheet()) },500) 
+  
+  // Waits 500ms then PRINT when Document is ready
+  // Recommended to ensure styles and info are loaded...
+  
+    setTimeout(function () { docReady(printTearSheet()) },500) // COMMENT OUT THIS LINE TO PREVENT PRINTING AND TEST STYLES
   
   
   // Wait for ALL resources to load..
     function docReady(e) {
       document.addEventListener("load", e); 
     }  
-/* 
 
-  //////////////////////////
-  // BROWSER CONDITIONALS //
-  //////////////////////////
 
-    Modify as needed...
+//////////////////////////
+// BROWSER CONDITIONALS //
+////////////////////////// 
 
-*/
+// Modify as needed...
+// See `if (isSafari === true)...` conditionals to make changes based on broswer
 
   // Opera 8.0+
   var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;

@@ -18,22 +18,22 @@
   <script>
    
 //  DECLARE PRODUCT ID FROM URL
-    const prodUrl = window.location;
+    var prodUrl = window.location;
     
-    const prodIdUrl = window.location.search.substr(1);
+    var prodIdUrl = window.location.search.substr(1);
     
     if (prodUrl = prodIdUrl + "=&ose=false"){
-      const prodId = prodIdUrl.replace("=&ose=false", "");
+      var prodId = prodIdUrl.replace("=&ose=false", "");
     } else if(prodUrl = prodIdUrl + "=&ose=true") {
-      const prodId = prodIdUrl.replace("=&ose=true", "");
+      var prodId = prodIdUrl.replace("=&ose=true", "");
     }
     
 //  SPLIT "&" INTO OBJECTS
-    const urlRes = prodIdUrl.split("&");
+    var urlRes = prodIdUrl.split("&");
     
 //  DECLARE PRODUCT TITLE
-    const titleStore = prodId + "title";
-    const titleGet = localStorage.getItem(titleStore);
+    var titleStore = prodId + "title";
+    var titleGet = localStorage.getItem(titleStore);
     
 //  UPDATE PAGE TITLE
     document.title = titleGet;

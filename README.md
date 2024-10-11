@@ -31,7 +31,7 @@ __TIPS__
   display: none !important;
 }``
 
-Manual Process:
+#### Manual Process:
 <br>
     - Comment out the "PRINT WINDOW" code on `page.tear-sheet.liquid` from lines [230-236](https://github.com/gravyhtx/shopify_product-tear-sheet/blob/main/Templates/page.tear-sheet.liquid).
     - Open the Tear Sheet and choose to close preview on the bottom bar.
